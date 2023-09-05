@@ -1,0 +1,31 @@
+site_name: Ink API Docs
+# Copyright
+copyright: "Copyright &copy; 2019 - 2020 Unacores AA Solutions Pvt Ltd."
+
+theme:
+  name: "material"
+  features:
+    - navigation.footer
+  logo: "images/ic_splash.png"
+  palette:
+    primary: "white"
+    accent: "blue"
+markdown_extensions:
+  - admonition
+  - codehilite
+  - pymdownx.mark
+extra:
+  generator: false
+
+# Page tree
+nav:
+  - Overview: index.md
+  - Get Started: get_started.md
+  - Registering with Ink AA: ink_aa_register.md
+  - Integration with Ink AA: ink_aa_integration.md
+  - UI Integration with Ink AA: ink_ui_integration.md
+  - Integrating with Ink FIU: ink_fiu_integration.md
+  - How-To: how_to.md
+  - Guidelines: guidelines.md
+  - Sample Test Data: fip_data_api.md
+  - FIP API Sandbox: fip_simulator.md
