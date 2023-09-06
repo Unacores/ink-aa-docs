@@ -1,5 +1,0 @@
-/* Increase the logo size */
-.navbar-brand img {
-    width: 150px; /* Adjust this value to your desired width */
-    height: 150px; /* Maintain the aspect ratio */
-}

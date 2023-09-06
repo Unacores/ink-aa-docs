@@ -1,0 +1,5 @@
+/* Increase the logo size */
+.md-header__button.md-logo img, .md-header__button.md-logo svg{
+    width: auto; /* Adjust this value to your desired width */
+    height: 50px; /* Maintain the aspect ratio */
+}

@@ -3,7 +3,7 @@ site_name: INK Account Aggregator API Document
 copyright: "Copyright &copy; Unacores AA Solutions Pvt Ltd."
 
 extra_css:
-  - /custom.css
+  - css/custom.css
 
 theme:
   name: "material"
