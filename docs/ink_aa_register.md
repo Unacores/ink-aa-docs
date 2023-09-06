@@ -1,59 +1,42 @@
-# Registering with Ink AA & Manage Consents
+# Registering with Ink AA and Handling Consents
 
-Registering with Ink AA and providing consent on sandbox is extremely simple. 
+The process of registering with Ink AA and managing consents in the sandbox environment is exceptionally straightforward, allowing you to thoroughly test your APIs.
 
-This will allow you to test your APIs.
+## Step 1: Register to Obtain an AA Handle
 
-## Step 1. Register to get AA handle
+Your first step is to register with Ink AA and obtain an AA handle. You can do this by visiting our web URL:
 
-You need to first register with Ink AA and get an AA handle. Go to our web URL. 
+[https://web.uatdev.ink-aa.com](https://web.uatdev.ink-aa.com)
 
-`https://webvwdev.ink-aa.in/onboarding/webview-register` 
+### A. Choose Your Preferred Ink AA Handle (e.g., customer1 or 9999977777)
 
-### A. Enter your choice of a Ink AA handle e.g. customer1 or 9999977777
+### B. Provide Your Mobile Number
 
-### B. Enter your mobile no 
+### C. Set a 4-Digit PIN
 
-### C. Set a 4 digit PIN
+After initiating the registration process, an OTP will be sent to your mobile number. Once you've successfully authenticated using this OTP, your registration will be complete!
 
-On proceeding with Registration an OTP will be sent to your mobile no. Once authenticated , you registration is complete !. 
+## Step 2: Select Your Account Providers to Link with Ink AA
 
+### A. For the sandbox environment, select either **`AMCE Bank`**.
 
-!!! attention "Sample data before linking"
-	Refer to the [Sample Test Data](/fip_data_api/) to add your test accounts before proceeding with Linking. You can also add these before registration
+### B. An OTP will be sent to your registered mobile number.
 
+### C. Once you've successfully authenticated using the OTP, your linking process is now complete.
 
-## Step 2. Select your Account Providers to link your accounts with Ink AA
+## Step 3: Accept or Reject Consent Requests
 
-### A. For Sandbox select **`Ink Bank`** or **`Dhanagar Bank`** . 
+### A. Log in to the Ink Web using your AA ID and PIN at the following web URL:
 
-### B. An OTP will be sent to your registered mobile no. 
+[https://web.uatdev.ink-aa.com](https://web.uatdev.ink-aa.com)
 
-### C. Once authenticated your linking is now complete. 
+For example, your AA ID might look like **customer1@ink**.
 
-## Step 3. Accept/Reject Consent Requests
+### B. When a consent request is raised by an FIU, you can access pending consents on the web URL.
 
-### A. Login to the Ink Web with your aa id and PIN
-
-`https://webvwdev.ink-aa.in/onboarding/webview-login`
-
-e.g. **customer1@ink-aa**
-
-### A. Once the consent request is raised from FIU. You can view pending consents in the web url 
-
-### B. Accept or Reject any pending Consent Requests.
+### C. From there, you can either accept or reject any pending consent requests.
 
 ## Managing Accounts and Consents
 
-If you wish to manage linked accounts and consents, you need to download Ink App. Please reach out to us on `support@ink-aa.co.in` for information. 
-
-!!! note "Mobile Support"
-	Currently we support Android users only, our iOS is underway and should be available soon. Please bear with us !.
-
-
-
-
-
-
-
+If you need to manage your linked accounts and consents, you'll need to download the Ink App. For more information on this, please reach out to us at `connect@ink-aa.com`.
 

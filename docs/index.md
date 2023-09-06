@@ -2,11 +2,11 @@
 
 ## Introduction
 
-Welcome to Ink !. Here you will find details on how to integrate and use the Account Aggregator APIs. While we are mainly playing the role of Account Aggregator (AA) in the ecosystem, however we are also providing the modules that implement the FIU and FIP functionality and their APIs. FIUs and FIPs can implement these modules in their production environment to enable quick onboarding to the AA ecosystem. 
+Greetings and welcome to Ink Account Aggregator! Here, you'll discover comprehensive guidance on integrating and utilizing the Account Aggregator APIs. While our primary role is to function as an Account Aggregator (AA) within the ecosystem, we also provide modules that are responsible for implementing the FIU functionality along with their corresponding APIs. FIUs and FIPs have the option to integrate these modules into their production environments, facilitating a swift onboarding process into the AA ecosystem.
 
-Alternatively, FIU or FIP can consume our AA REST API if they wish to build ther own FIU or FIP module. For this purpose, Ink has built an [‘AA API sandbox’](finvu_aa_integration) which is an implementation of the REST APIs needed to be implemented by an AA. Here we outline all the necessary information needed from a prospective of FIU or FIP to interface with our AA REST API so they can be onboarded in the AA ecosystem. 
+Alternatively, if a FIU or FIP prefers to create their own FIU or FIP module, they can utilize our AA REST API. To support this, Ink has developed an 'AA API sandbox' (ink_aa_integration), which serves as an implementation of the essential REST APIs required for an AA. Within this resource, we outline all the vital information necessary for prospective FIUs or FIPs to effectively interface with our AA REST API, thus enabling their seamless integration into the AA ecosystem.
 
-We are trying to keep upto the pace by implementing latest community and Rebit API specs for the simulators, however if there any issues, do drop us a note at `support@ink-aa.co.in`
+We are committed to staying up-to-date with the latest community and Rebit API specifications for our simulators. However, if you encounter any issues or have any questions, please don't hesitate to contact us at `help@ink-aa.com`.
 
 ## Glossary
 

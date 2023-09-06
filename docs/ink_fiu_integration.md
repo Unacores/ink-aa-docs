@@ -1,14 +1,14 @@
-# Integrating with Ink FIU module
+# Integrating with the Ink FIU Module
 
-We have built the nuts and bolts and the complexity of the FIU functionality to interact with an AA. This would help you to focus on building your app once you receive the decrypted data. 
+We've taken care of the intricate details and complexities of the FIU functionality, streamlining its interaction with an AA. This allows you to concentrate on developing your application once you have access to the decrypted data.
 
-Our FIU sandbox environment is hosted and available at all times for you to access. 
+Our FIU sandbox environment is continuously hosted and accessible for your convenience.
 
-The FIU sandbox is AA agnostic and can interface with any account aggregator, this is done on basis of the handle of the AA user e.g. customer1@ink-aa will redirect to the 'Ink AA', customer2@otheraa will redirect requests to the 'Other AA'
+The FIU sandbox is AA-agnostic and can seamlessly interface with any account aggregator. This is accomplished based on the AA user's handle. For instance, a handle like `customer1@ink` will automatically redirect requests to the 'Ink AA,' while `customer2@otheraa` will route requests to the 'Other AA.'
 
 ### Ink FIU Endpoint
 
-The Ink FIU API root endpoint `https://finsense.ink-aa.in/ConnectHub/FIU/API/V1`
+The Ink FIU API root endpoint `https://fiu.uatdev.ink-aa.com`
 
 
 Proceed to CREATE A CONSENT TEMPLATE or USE Below PRE-CREATED TEMPLATES

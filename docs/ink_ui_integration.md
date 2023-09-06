@@ -1,98 +1,33 @@
 # Web UI integration with Ink AA
 
-The Ink Webview integration end point enables seamless integration of FIU application with Ink to provide frictionless user experience.
+The Ink Web App integration end point enables seamless integration of FIU application with Ink to provide frictionless user experience.
 
-The Ink Webview can be invoked by redirecting the FIU page to the Webview URL as an http GET request along with some URL parameters.
+The Ink Web App can be invoked by redirecting the FIU page to the Webview URL as an http GET request along with some URL parameters.
 
 ## Pre-Requisites
 
-- You are registered with Ink AA and have got a VUA e.g. `yourname@ink-aa`
+- You are registered with Ink AA and have got a VUA e.g. `yourname@ink`
 
 
 ### Understanding the Process flow
 
-1.	FIU securely captures (preferably in a authenticated web session) user’s AA id from the FIU web user interface and submits to the FIU server
-2.	FIU server generates a consent request (as per ReBIT specifications) with a unique consent request id
-3.	FIU server encrypts the consent request and encodes with base 64 encoder
-4.	FIU server sends redirection request to the web browser/webview along with FIU id, encoded consent request, unique consent request id and call back URL for  
-    redirecting to Ink AA Webview
-5.	Browser/webview redirects the user to the Ink domain
-6.	Ink AA webview performs user aa id authentication and processes consent request by seeking consent from user
-7.	Based on user’s acceptance/rejection to the consent request, Ink AA server sends status notification to FIU server along with consent request id
-8.	Webview then redirects the user back to the FIU domain to the call back URL passed in the original request
-9.	FIU can now proceed with checking the consent status with FIU server
-10.	If the user has provided consent, the FIU server can proceed to data request and data fetch from Ink AA server
+1. The FIU securely captures the user's AA ID, preferably during an authenticated web session, from the FIU web user interface and submits it to the FIU server.
 
-![Screenshot](images/fiu_aa_webflow.png)
+2. The FIU server generates a consent request in accordance with ReBIT specifications, assigning it a unique consent request ID.
 
-### Integration Using the Ink Finsense (FIU)
+3. After generating the consent request, the FIU server encrypts it and encodes it using a base64 encoder.
 
-This is an easy 2 step integration process. 
+4. The FIU server initiates a redirection request to the web browser or webview. This request includes the FIU ID, the encoded consent request, the unique consent request ID, and a callback URL for redirecting to the Ink AA webview.
 
-#### Step 1. Server API for ConsentRequest (/TemplateConsentIntentRequest)
+5. The web browser or webview redirects the user to the Ink domain.
 
-Root endpoint : `https://finsense.ink-aa.in/ConnectHub/FIU/API/V1`
+6. Within the Ink AA webview, user AA ID authentication is performed, and the consent request is processed by soliciting consent from the user.
 
-This API is used for the Ink Webview integration flow.
+7. Depending on the user's acceptance or rejection of the consent request, the Ink AA server sends a status notification to the FIU server, along with the consent request ID.
 
-TemplateConsentIntentRequest generates consentHandleId and encryptedConsentRequest at FIU side and sends it to AA. 
+8. Subsequently, the webview redirects the user back to the FIU domain, returning to the originally provided callback URL.
 
-Method: `POST`
+9. The FIU can now proceed by checking the consent status with the FIU server.
 
-Below `HTTP` headers need to be set when calling the API
+10. If the user has granted consent, the FIU server can continue with the data request and retrieve data from the Ink AA server.
 
-  |  Key          |   Value       |	Description	|
-  | ------------- |-------------|-------------|
-  | `content-Type` | `application/json` | API request and response are in JSON format |
-  | `Authorization` | `Bearer: token received after calling /User/Login`  | The token that was received after the `/User/Login` API was called. |
-  
-  
-
-Sample Request
-``` json
-{
-		"header": {
-		"rid": "42c06b9f-cc5b-4a53-9119-9ca9d8e9acdb",
-		"ts":  "2020-02-21T12:23:49.430+0000",
-		"channelId": "finsense"
-	},
-		"body":{
-			"custId": "customer1@ink-aa",
-			"consentDescription": "Consent for a loan",
-			"templateName": "Onetime Loan Consent"
-	}
-}
-```
-
-Body Parameters
-
-  |  Name          |   Value       |	Description	|
-  | ------------- |-------------|-------------|
-  | `custId` | Valid Customer AA id (VUA) | Customer AA id |
-  | `consentDescription` | Free text | Free text consent description field |
-  | `templateName` | Valid template in Ink Finsense (FIU)  | The name of the template created in Ink Finsense. |
-  
-Sample Response
-
-Response:
-``` json
-{
-    "header": {
-        "rid": "42c06b9f-cc5b-4a53-9119-9ca9d8e9acdb",
-        "ts": "2020-02-21T12:23:51.430+0000",
-        "channelId": "finsense"
-    },
-    "body": {
-        "consentHandleId": "8a889427-9ba0-4449-a1a7-ca4dbbbf7c95",
-        "encryptedConsentRequest": "jbSAZ0JPkpNYtJBbZAoSdCIU2MWEW4JQbE9iMBmKsH0PCHjkOZRUBxpyee/50aDXJuoCSePe+TPWK0kAu4KWh2QqFKkka+dqv5tHjDhcDAm2CDXcdCX0l+fgoLVf9lfiHfSKz2LQY4EeUDQR+7rE1/o1tIp1gb0xKaa/faJpqjMRXNkKmboE3eJbWEhFah2BG3zgkPvjJB7H5y3nNOl5T1HIwW8JeeH70c5UGzmPd9urDRYzR4xq7Pqpi6P6q9g9G6AvDrboKi5EvH1+ycqN9+i+DJ83Ld2xRx2iVWTiQBfr8z4QX53rXq4M8XY5GRlf7yb5TFoBT2DTqu+K0SPQs7NDjWWiCuMmA6yyMY+68W62mdjzgmqTtCLflsKYu/MKRO4XTSIM5ZFVEmK231o2LF8l1od9DoYrBA1VrojVAxM6C9aiYCkdPx/ywY72nInnpKxKc0yQrzsuZhcUgPFalI8avuXfSI9W29barQsr8CDH2butHv4cXN3ul3FYFzkAuOnrZDkEQnFQx5buer+/ZzsHP8eMEHYUDGIrCLpW6LF2//srT6s0vSUN7pEUOhA+0GHWHiQT7weiWPismCuzMP/ft+1Ik6+feyIQzyjozz3j6zl3LW2ZJ9t8fzaDgVi5TlE22WrcVIgheMlFcITiUl3tjiOAcCPWLmbkXObkqgeCqswPPBTMYDjFvZTP7DPeNnNiMbgObFA+Ct7S1ek5zcz1yLN6imAm+WBNJ9ddhGRU18jRRSsF+i6BnYJNqkOn/Wp+07QfiUvyjMkfDObL8/UHDrVG7Z/HeC8GxMh/ydgmAPtqVKISw0qR/ehBvFyN2r+/0Pbptlt/YgyAzCBnCnCXNTeYf4E9/RVfVLca5Bx/clEq1Am2dAgmrRrHDUKirAQ0JlHAXuOI1I6Z9/ANz4L3Wb/8Fdnc5Iy0LX6lV9xKweyhfaHapd8kBdf6aij8zmvHRQ2KTECGw9+OD37FtbtNll8CZWbLM+oSuQhixpmA1DqQ3nCoGUNjV+4NLpeePIuuRx+BbNKagK9aw/8VeV5mHrAqKhnfW+scgp6dVBmLfL9vSYrlncG3tpd0bLq0"
-    }
-}
-```  
-
-#### Step 2. Web URL Redirect Parameters
-
-Please reach out to us on `support@ink-aa.co.in` for on-boarding and integration details as we are evolving. 
-
-### Integration Using your FIU Platform
-
-If you have your own custom FIU platform reach out to us on `support@ink-aa.co.in` for on-boarding and integration. 

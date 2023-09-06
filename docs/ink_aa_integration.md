@@ -7,31 +7,30 @@ Once you have built out the API and respective FIU functionality , you can start
 Before that there are certain pre-requisites that need to be done for security and authentication when calling the APIs. 
 
 ## Pre-Requisites before testing
-Follow below steps.
+1.	Gain a basic understanding of the AA Ecosystem – resources given in the INK AA Website.
+2.	As an FIU, use the Sandbox resources available in our sandbox
 
-1. Share your root endpoint with us on `support@ink-aa.co.in`
+For new user registration in the Sandbox , refer the below link for UAT and Production environments
+# 
+[UAT Sandbox](https://portal.uatdev.ink-aa.com/)
 
-	e.g. `https://api.fiu.com`
+[Production Sandbox](https://sandbox.ink-aa.com/)
 
-2. Share the public key portion only on `support@ink-aa.co.in` of your generated key for signature verification and authorization. 
 
-	Refer to the **[How-To](/how_to/)** section for more details on JSON Web key generation and signing.
+After filling the relevant fields , click on sign up button.
 
-3. In order to use the AA api, a token has to be acquired that needs to be passed in the API header. Reach out to us on `support@ink-aa.co.in` to request for the  API token. 
+Provide the OTP received on the email registered for verification
 
-	This needs to be set in the `client_api_key` header when calling our AA apis.
+A congratulation message is shown to the user after successful submission of the registration.
 
-	!!! attention "Token expiry"
-		The token will have a **expiry of 6 months** in the sandbox environment following which API calls would fail.
+Admin Team will then review the request and approve the registration.Email will be sent on registered email ID will the account credentials.
 
-4. Generate a token and share with us on `support@ink-aa.co.in` . We will use this token in header `aa_api_key` when we call your FIU notification apis. 
+FIU can login using the account credentials by using the same link.User will be prompted to change the password during first login.
 
-!!! note "Sharing of Metadata Information"
-	In the future this process will be automated and centralized so communication would be seamless for token generation, public key retrieval, updates, token expiration notifications, etc.
-
+Write to our business team at connect@ink-aa.com sharing basic details of your use case, and request for pricing and business agreement
 
 ## Ink AA Endpoint
-The Ink AA api endpoint is `https://aauat.ink-aa.in/API/V1`
+The Ink AA api endpoint is `https://uat.ink-aa.com/api/V1`
 
 
 ## Request headers (To be set for every API request)
@@ -57,7 +56,7 @@ HTTP METHOD: `POST`
 
 Relative URL: `/Consent`
 
-URL: `https://aauat.ink-aa.in/API/V1/Consent`
+URL: `https://uat.ink-aa.com/API/V1/Consent`
 
 Below `http` headers need to be set as part of each request
 
@@ -143,9 +142,9 @@ HTTP METHOD: `GET`
 
 RELATIVE URL: `/handle/{consentHandle}`
 
-URL: `https://aauat.ink-aa.in/API/V1/Consent/handle/{consentHandle}`
+URL: `https://uat.ink-aa.com/API/V1/Consent/handle/{consentHandle}`
 
-e.g. : https://aauat.ink-aa.in/API/V1/Consent/handle/2c75ad41-49e0-438c-bd7c-8af9db072065
+e.g. : https://uat.ink-aa.com/API/V1/Consent/handle/2c75ad41-49e0-438c-bd7c-8af9db072065
 
 Below `http` headers need to be set as part of each request
 
@@ -185,8 +184,8 @@ HTTP METHOD: `GET`
 
 RELATIVE URL: `/Consent/{id}`
 
-URL: `https://aauat.ink-aa.in/API/V1/Consent/{id}`
-e.g. : https://aauat.ink-aa.in/API/V1/Consent/79072af5-c41f-4cae-ac59-e233b82ea750
+URL: `https://uat.ink-aa.com/API/V1/Consent/{id}`
+e.g. : https://uat.ink-aa.com/API/V1/Consent/79072af5-c41f-4cae-ac59-e233b82ea750
 
 Below `http` headers need to be set as part of each request
 
@@ -228,7 +227,7 @@ HTTP METHOD: `POST`
 
 RELATIVE URL: `/FI/request`
 
-URL: `https://aauat.ink-aa.in/API/V1/FI/request`
+URL: `https://uat.ink-aa.com/API/V1/FI/request`
 
 Below `http` headers need to be set as part of each request
 
@@ -288,8 +287,8 @@ HTTP METHOD: `GET`
 
 RELATIVE URL: `/FI/fetch/{sessionId}`
 
-URL: `https://aauat.ink-aa.in/API/V1/FI/fetch/{sessionId}`
-e.g. : https://aauat.ink-aa.in/API/V1/FI/fetch/e4e3fb59-d682-48c7-80e2-770967ba2477
+URL: `https://uat.ink-aa.com/API/V1/FI/fetch/{sessionId}`
+e.g. : https://uat.ink-aa.com/API/V1/FI/fetch/e4e3fb59-d682-48c7-80e2-770967ba2477
 
 Below `http` headers need to be set as part of each request
 
@@ -342,7 +341,7 @@ HTTP METHOD: `POST`
 
 RELATIVE URL: `/Consent/Notification`
 
-URL: `https://aauat.ink-aa.in/API/V1/Consent/Notification`
+URL: `https://uat.ink-aa.com/API/V1/Consent/Notification`
 
 Below `http` headers need to be set as part of each request
 
@@ -384,7 +383,7 @@ HTTP METHOD: `POST`
 
 RELATIVE URL: `/FI/Notification`
 
-URL: `https://aauat.ink-aa.in/API/V1/FI/Notification`
+URL: `https://uat.ink-aa.com/API/V1/FI/Notification`
 
 
 Below `http` headers need to be set as part of each request
@@ -438,7 +437,7 @@ HTTP METHOD: `POST`
 
 RELATIVE URL: `/Account/link/Notification`
 
-URL: `https://aauat.ink-aa.in/API/V1/Account/link/Notification`
+URL: `https://uat.ink-aa.com/API/V1/Account/link/Notification`
 
 Below `http` headers need to be set as part of each request
 
@@ -476,36 +475,5 @@ Response Expected:
 This API is used by FIUs to check availability of AAs.
 
 
-HTTP METHOD: `GET`
 
-RELATIVE URL: `/Heartbeat`
-
-URL: `https://aauat.ink-aa.in/API/V1/Heartbeat`
-
-Sample Request Body
-`No Request Body expected`
-
-Sample Response Expected: 
-``` json
-{
-    "ver": "1.1.3",
-    "timestamp": "2018-06-25T17:28:01.000+0000",
-    "Status": "UP",
-    "Error": {
-        "code": 0,
-        "msg": "OK",
-        "detail": "Service is activated on network"
-    }
-}
 ```
-
-## Sample data for testing
-Whether you are building your own FIU or using our FIU, having access to sample data is a necessary. 
-
-We have made it simple for you to enter data as per your requirements and have provided APIs for the same. 
-
-Refer to the [Sample Test Data](/fip_data_api/) section for entering sample data. The data schemas are compliant with the [ReBIT FIType schemas](https://api.rebit.org.in/schema).
-
-As data is sourced from FIP (Financial Information Provider) we have built a FIP sandbox as well. However as a FIU developer you need not worry about FIP as FIU never interact with FIP directly and communication is always through an AA. For reference more details of FIP at [FIP Sandbox](fip_simulator)
-
-  
