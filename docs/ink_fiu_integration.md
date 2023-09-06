@@ -28,7 +28,7 @@ We have built-in structural and valid value validations however to further reduc
 #### Step 1. Create a consent template 
 
 API to call : 
-`https://finsense.ink-aa.in/ConnectHub/FIU/API/V1/ConsentTemplate`
+`https://fiu.uatdev.ink-aa.in/ConnectHub/FIU/API/V1/ConsentTemplate`
 
 Method : `POST`
 
@@ -128,7 +128,7 @@ Sample Template creation Request
 This API is used to approve a previously created consent template. 
 
 The API to call:
-`https://finsense.ink-aa.in/ConnectHub/FIU/API/V1/ApproveConsentTemplate`
+`https://fiu.uatdev.ink-aa.in/ConnectHub/FIU/API/V1/ApproveConsentTemplate`
 
 
 Method: `POST`
@@ -168,7 +168,7 @@ Sample Template approval Request
 This API is used to raise a consent request that customer can approve on the Ink Mobile or Web application.
 
 API to call:
-`https://finsense.ink-aa.in/ConnectHub/FIU/API/V1/SubmitConsentRequest`
+`https://fiu.uatdev.ink-aa.in/ConnectHub/FIU/API/V1/SubmitConsentRequest`
 
 Method : `POST`
 
@@ -195,7 +195,7 @@ Sample Request
     "header": {
         "rid": "f871126b-dd3f-4bb4-be8c-b1911b57a893",
         "ts": "2020-01-13T12:58:33.501+0000",
-        "channelId": "finsense"
+        "channelId": "fiu.uatdev"
     },
     "body":  {
     			"custId": "customer1@ink-aa",
@@ -211,7 +211,7 @@ Sample Response
     "header": {
         "rid": "42c06b9f-cc5b-4a53-9119-9ca9d8e9acdb",
         "ts": "2020-02-21T12:23:14.550+0000",
-        "channelId": "finsense"
+        "channelId": "fiu.uatdev"
     },
     "body": {
         "custId": "customer1@ink-aa",
@@ -232,7 +232,7 @@ Sample Response
 This API is used to check the status of a previously raised consent request that is awaiting customer approval. 
 
 API to call
-`https://finsense.ink-aa.in/ConnectHub/FIU/API/V1/ConsentStatus/<consentHandleId>/<custAAId>`
+`https://fiu.uatdev.ink-aa.in/ConnectHub/FIU/API/V1/ConsentStatus/<consentHandleId>/<custAAId>`
 
 Method: `GET`
 
@@ -255,7 +255,7 @@ Sample Response
     "header": {
         "rid": "5c9d403d-d9c1-4177-b27e-3aca5a660938",
         "ts": "2019-07-15T11:03:44.427+0000",
-        "channelId":  "finsense"
+        "channelId":  "fiu.uatdev"
     },
     "body": {
         "consentStatus": "ACCEPTED",
@@ -275,7 +275,7 @@ The `consentStatus` are as below
 If consent is ACCEPTED then a data request can be made. When the FI DataRquest is called, the request goes to FIRquest of AA then AA sends notification when Data is ready to FIU. In the response it sends sessionId using which data fetch api can be called.
 
 URL to call 
-`https://finsense.ink-aa.in/ConnectHub/FIU/API/V1/FIRequest`
+`https://fiu.uatdev.ink-aa.in/ConnectHub/FIU/API/V1/FIRequest`
 
 Method: `POST`
 
@@ -325,7 +325,7 @@ Sample response. This returns a Session id for the request.
     "header": {
         "rid": "41f44ca2-4b9a-4310-b6a0-eaaa1349bdd6",
         "ts": "2019-07-15T11:08:21.722+0000",
-        "channelId":  "finsense"
+        "channelId":  "fiu.uatdev"
     },
     "body": {
         "ver": "1.0",
@@ -346,11 +346,11 @@ This API retrieves the status of the previously sent FIDataRequest.
 
 FIStatus api is called to check whether data is ready or not. If data is ready fiRequestStatus is set to READY or else fiRequestStatus is set to PENDING.
 
-When the fiRequestStatus is READY, it means that the AA has sent the data to Finsense FIU and FIU has stored the data and ready for channel to fetch. The channel can then call the FIFetch API to retrieve the data into channel.
+When the fiRequestStatus is READY, it means that the AA has sent the data to fiu.uatdev FIU and FIU has stored the data and ready for channel to fetch. The channel can then call the FIFetch API to retrieve the data into channel.
 
 
 API to call
-`https://finsense.ink-aa.in/ConnectHub/FIU/API/V1/FIStatus/<consentId>/<sessionId>/<consentHandle>/<custId>`
+`https://fiu.uatdev.ink-aa.in/ConnectHub/FIU/API/V1/FIStatus/<consentId>/<sessionId>/<consentHandle>/<custId>`
 
 Method : `GET`
 
@@ -395,12 +395,12 @@ The `fiRequestStatus` are as below
 
 
 ### Fetch data
-This API is used to fetch the data from Finsense FIU when the call to FIStatus API returns READY in the fiRequestStatus field.
+This API is used to fetch the data from fiu.uatdev FIU when the call to FIStatus API returns READY in the fiRequestStatus field.
 
 API to call
-`https://finsense.ink-aa.in/ConnectHub/FIU/API/V1/FIFetch/<custId>/<consentId>/<sessionId>`
+`https://fiu.uatdev.ink-aa.in/ConnectHub/FIU/API/V1/FIFetch/<custId>/<consentId>/<sessionId>`
 
-e.g. https://finsense.ink-aa.in/ConnectHub/FIU/API/V1/FIFetch/customer1@ink-aa/117e8942-1605-4b75-b2db-4b8c953abeae/eeb30580-3740-42c4-887b-3f08b929be58
+e.g. https://fiu.uatdev.ink-aa.in/ConnectHub/FIU/API/V1/FIFetch/customer1@ink-aa/117e8942-1605-4b75-b2db-4b8c953abeae/eeb30580-3740-42c4-887b-3f08b929be58
 
 
 METHOD: `GET`
@@ -428,7 +428,7 @@ Response:
     "header": {
         "rid": "b9da6b54-fa90-42eb-8994-ef3d106de01e",
         "ts": "2019-12-23T09:00:47.423+0000",
-                 "channelId":  "finsense"
+                 "channelId":  "fiu.uatdev"
 },
 "body": [
    {
