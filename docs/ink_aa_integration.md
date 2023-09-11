@@ -19,9 +19,15 @@ For new user registration in the Sandbox , refer the below link for UAT and Prod
 
 After filling the relevant fields , click on sign up button.
 
+![Register](images\Picture1.png)
+
 Provide the OTP received on the email registered for verification
 
+![Register](images\Picture2.png)
+
 A congratulation message is shown to the user after successful submission of the registration.
+
+![Register](images\Picture3.png)
 
 Admin Team will then review the request and approve the registration.Email will be sent on registered email ID will the account credentials.
 
@@ -30,6 +36,11 @@ FIU can login using the account credentials by using the same link.User will be 
 Write to our business team at connect@ink-aa.com sharing basic details of your use case, and request for pricing and business agreement
 
 ## Ink AA Endpoint
+
+UAT Entity ID 'UNACORES-AA-UAT'
+
+PROD Entity ID 'UCSAA_AA_PROD'
+
 The Ink AA api endpoint is `https://uat.ink-aa.com/api/V1`
 
 

@@ -25,7 +25,7 @@ nav:
   - Overview: index.md
   - Get Started: get_started.md
   - Registering with Ink AA: ink_aa_register.md
-  - Integration with Ink AA: ink_aa_integration.md
+  - TSP Integration with Ink AA: ink_aa_integration.md
   - UI Integration with Ink AA: ink_ui_integration.md
   - Integrating with Ink FIU: ink_fiu_integration.md
   - How-To: how_to.md
