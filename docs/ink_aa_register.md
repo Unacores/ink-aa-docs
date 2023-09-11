@@ -14,6 +14,8 @@ Your first step is to register with Ink AA and obtain an AA handle. You can do t
 
 ### C. Set a 4-Digit PIN
 
+### D. For Test Environment, Default OTP will be **`1234`**
+
 After initiating the registration process, an OTP will be sent to your mobile number. Once you've successfully authenticated using this OTP, your registration will be complete!
 
 ## Step 2: Select Your Account Providers to Link with Ink AA
