@@ -1,0 +1,705 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="..">
+      
+      
+        <link rel="next" href="../ink_aa_register/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.3.1">
+    
+    
+      
+        <title>Get Started - Developer Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.046329b4.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.85d0ee34.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../css/custom.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="blue">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#getting-started" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Developer Docs" class="md-header__button md-logo" aria-label="Developer Docs" data-md-component="logo">
+      
+  <img src="../images/ic_splash.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Developer Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Get Started
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Developer Docs" class="md-nav__button md-logo" aria-label="Developer Docs" data-md-component="logo">
+      
+  <img src="../images/ic_splash.png" alt="logo">
+
+    </a>
+    Developer Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Get Started
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Get Started
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#understanding-fiu-workflows" class="md-nav__link">
+    Understanding FIU Workflows
+  </a>
+  
+    <nav class="md-nav" aria-label="Understanding FIU Workflows">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#consent-flow-requesting-consent" class="md-nav__link">
+    Consent Flow - Requesting Consent
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#consent-flow-notifying-fiu-of-consent-status" class="md-nav__link">
+    Consent Flow - Notifying FIU of Consent Status
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#data-flow-initiating-a-data-request" class="md-nav__link">
+    Data Flow - Initiating a Data Request
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#data-flow-receiving-data" class="md-nav__link">
+    Data Flow - Receiving Data
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#understanding-aa-workflows-and-customer-interaction" class="md-nav__link">
+    Understanding AA Workflows and Customer Interaction
+  </a>
+  
+    <nav class="md-nav" aria-label="Understanding AA Workflows and Customer Interaction">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-customer-registration-with-aa" class="md-nav__link">
+    Step 1: Customer Registration with AA
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-customer-linking-their-financial-accounts" class="md-nav__link">
+    Step 2: Customer Linking Their Financial Accounts
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-securely-share-financial-information" class="md-nav__link">
+    Step 3: Securely Share Financial Information
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#integrating-with-our-fiu-module" class="md-nav__link">
+    Integrating with Our FIU Module
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ink_aa_register/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Registering with Ink AA
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ink_aa_integration/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    TSP Integration with Ink AA
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ink_ui_integration/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    UI Integration with Ink AA
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ink_fiu_integration/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Integrating with Ink FIU
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../how_to/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    How-To
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../guidelines/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Guidelines
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#understanding-fiu-workflows" class="md-nav__link">
+    Understanding FIU Workflows
+  </a>
+  
+    <nav class="md-nav" aria-label="Understanding FIU Workflows">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#consent-flow-requesting-consent" class="md-nav__link">
+    Consent Flow - Requesting Consent
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#consent-flow-notifying-fiu-of-consent-status" class="md-nav__link">
+    Consent Flow - Notifying FIU of Consent Status
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#data-flow-initiating-a-data-request" class="md-nav__link">
+    Data Flow - Initiating a Data Request
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#data-flow-receiving-data" class="md-nav__link">
+    Data Flow - Receiving Data
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#understanding-aa-workflows-and-customer-interaction" class="md-nav__link">
+    Understanding AA Workflows and Customer Interaction
+  </a>
+  
+    <nav class="md-nav" aria-label="Understanding AA Workflows and Customer Interaction">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-customer-registration-with-aa" class="md-nav__link">
+    Step 1: Customer Registration with AA
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-customer-linking-their-financial-accounts" class="md-nav__link">
+    Step 2: Customer Linking Their Financial Accounts
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-securely-share-financial-information" class="md-nav__link">
+    Step 3: Securely Share Financial Information
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#integrating-with-our-fiu-module" class="md-nav__link">
+    Integrating with Our FIU Module
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="getting-started">Getting Started</h1>
+<p>When it comes to integrating with our Account Aggregator (AA), there are multiple paths to choose from, depending on the specific functionality you are building.</p>
+<p>Your interaction and integration with Ink Account Aggregator (AA) will typically occur in one of two roles: as a Financial Information Provider (FIP) or a Financial Information User (FIU). Please refer to the relevant section below for detailed information on integration and API usage.</p>
+<h2 id="understanding-fiu-workflows">Understanding FIU Workflows</h2>
+<p>Here, we provide an overview of the key workflows for an FIU:</p>
+<h3 id="consent-flow-requesting-consent">Consent Flow - Requesting Consent</h3>
+<p>The FIU initiates the consent process by making a request to the AA server through the <code>/Consent</code> API. Upon receiving this request, the AA server notifies the customer, typically via app notifications or SMS, prompting them to review and either approve or reject the consent request within the Ink app (whether on mobile or web).</p>
+<h3 id="consent-flow-notifying-fiu-of-consent-status">Consent Flow - Notifying FIU of Consent Status</h3>
+<p>Once the customer makes their decision within the Ink app (Mobile or Web), the AA server informs the FIU by invoking the <code>/Consent/Notification</code> API. Upon receiving this notification, the FIU has the option to update their systems and subsequently retrieve consent details from the AA server via the <code>/Consent/{id}</code> endpoint.</p>
+<h3 id="data-flow-initiating-a-data-request">Data Flow - Initiating a Data Request</h3>
+<p>If the customer grants consent, and the FIU receives consent details from Ink AA, the FIU can proceed to request data associated with that consent by calling the <code>/FI/request</code> API. The AA server will generate a unique session identifier for the request and then forward it to the Financial Information Providers (FIPs) according to the consent details.</p>
+<h3 id="data-flow-receiving-data">Data Flow - Receiving Data</h3>
+<p>Following a data request, the FIU must await the "Data Ready" notification from the AA, which indicates that the AA server has received the data from the FIP. Once this notification is received, the FIU server can retrieve the data from the AA server.</p>
+<h2 id="understanding-aa-workflows-and-customer-interaction">Understanding AA Workflows and Customer Interaction</h2>
+<p>Before customers can securely share their financial information with FIUs, they must first register with a licensed AA. Ink AA offers a mobile or web application for customer interactions, making the process straightforward with just a few steps.</p>
+<h3 id="step-1-customer-registration-with-aa">Step 1: Customer Registration with AA</h3>
+<p>Customers can register with the Ink Account Aggregator using either the Ink mobile app or the web platform. Upon registration, customers receive a unique handle or AA ID, such as <code>yourname@ink-aa</code> or their mobile number <code>9999999999@ink</code>. This virtual user handle can be provided to FIUs for consent requests, similar to a UPI handle for payment collections.</p>
+<h3 id="step-2-customer-linking-their-financial-accounts">Step 2: Customer Linking Their Financial Accounts</h3>
+<p>Customers need to link their financial accounts to their unique Ink AA ID. The authentication process is simple and typically involves receiving an OTP on the customer's registered mobile number from their Financial Institution.</p>
+<h3 id="step-3-securely-share-financial-information">Step 3: Securely Share Financial Information</h3>
+<p>With their accounts linked, customers can accept or reject consent requests from FIUs and share their financial account information for their selected accounts. This can be easily managed through the Ink mobile or web app. Once consent is granted, FIUs can request financial information from the specified accounts through the Ink AA.</p>
+<h2 id="integrating-with-our-fiu-module">Integrating with Our FIU Module</h2>
+<p>We have already developed the core functionality of the FIU module, simplifying your integration with an AA. This allows you to focus on building your application once you have access to the decrypted data.</p>
+<p>Our FIU sandbox environment is continuously available for your use. It's worth noting that the FIU sandbox is agnostic to any specific AA and can interface with any account aggregator. This is achieved based on the handle of the AA user, for example, <code>customer1@ink</code> will redirect to the 'Ink AA'.</p>
+<p>Our data schemas adhere to the <a href="https://api.rebit.org.in/schema">ReBIT FIType schemas</a>.</p>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href=".." class="md-footer__link md-footer__link--prev" aria-label="Previous: Overview" rel="prev">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Overview
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../ink_aa_register/" class="md-footer__link md-footer__link--next" aria-label="Next: Registering with Ink AA" rel="next">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Registering with Ink AA
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; Unacores AA Solutions Pvt Ltd.
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.footer"], "search": "../assets/javascripts/workers/search.dfff1995.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.dff1b7c8.min.js"></script>
+      
+    
+  </body>
+</html>
