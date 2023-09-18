@@ -19,15 +19,15 @@ For new user registration in the Sandbox , refer the below link for UAT and Prod
 
 After filling the relevant fields , click on sign up button.
 
-![Register](images\Picture1.png)
+![Register](../images/Picture1.png)
 
 Provide the OTP received on the email registered for verification
 
-![Register](images\Picture2.png)
+![Registration OTP](https://unacores.github.io/ink-aa-docs/images/Picture2.png)
 
 A congratulation message is shown to the user after successful submission of the registration.
 
-![Register](images\Picture3.png)
+![Registeration Successful](https://unacores.github.io/ink-aa-docs/images/Picture3.png)
 
 Admin Team will then review the request and approve the registration.Email will be sent on registered email ID will the account credentials.
 
