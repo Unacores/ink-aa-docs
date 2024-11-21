@@ -1,42 +1,81 @@
-# Getting Started
+# Getting Started  
 
-When it comes to integrating with our Account Aggregator (AA), there are multiple paths to choose from, depending on the specific functionality you are building.
+Welcome to Ink Account Aggregator (AA)! Whether you're a **Financial Information Provider (FIP)** or a **Financial Information User (FIU)**, this guide will help you integrate seamlessly with our ecosystem. Dive into the relevant sections below to understand workflows and API interactions tailored to your role.
 
-Your interaction and integration with Ink Account Aggregator (AA) will typically occur in one of two roles: as a Financial Information Provider (FIP) or a Financial Information User (FIU). Please refer to the relevant section below for detailed information on integration and API usage.
+---
 
-## Understanding FIU Workflows
+## Understanding FIU Workflows  
 
-Here, we provide an overview of the key workflows for an FIU:
+As an FIU, your integration revolves around managing consent and data flows. Below are the key steps to ensure a smooth process:  
 
-### Consent Flow - Requesting Consent
-The FIU initiates the consent process by making a request to the AA server through the `/Consent` API. Upon receiving this request, the AA server notifies the customer, typically via app notifications or SMS, prompting them to review and either approve or reject the consent request within the Ink app (whether on mobile or web).
+### 🚦 Consent Flow  
 
-### Consent Flow - Notifying FIU of Consent Status
-Once the customer makes their decision within the Ink app (Mobile or Web), the AA server informs the FIU by invoking the `/Consent/Notification` API. Upon receiving this notification, the FIU has the option to update their systems and subsequently retrieve consent details from the AA server via the `/Consent/{id}` endpoint.
+#### 1. **Requesting Consent**  
+- Initiate the consent process via the `/Consent` API.  
+- Ink AA notifies the customer through app notifications or SMS.  
+- The customer reviews and approves/rejects the request in the Ink app (mobile or web).  
 
-### Data Flow - Initiating a Data Request
-If the customer grants consent, and the FIU receives consent details from Ink AA, the FIU can proceed to request data associated with that consent by calling the `/FI/request` API. The AA server will generate a unique session identifier for the request and then forward it to the Financial Information Providers (FIPs) according to the consent details.
+#### 2. **Notifying FIU of Consent Status**  
+- Once a customer makes their decision, Ink AA informs the FIU using the `/Consent/Notification` API.  
+- FIUs can then retrieve consent details via the `/Consent/{id}` endpoint to update their systems.
 
-### Data Flow - Receiving Data
-Following a data request, the FIU must await the "Data Ready" notification from the AA, which indicates that the AA server has received the data from the FIP. Once this notification is received, the FIU server can retrieve the data from the AA server.
+---
 
-## Understanding AA Workflows and Customer Interaction
+### 📊 Data Flow  
 
-Before customers can securely share their financial information with FIUs, they must first register with a licensed AA. Ink AA offers a mobile or web application for customer interactions, making the process straightforward with just a few steps.
+#### 1. **Initiating a Data Request**  
+- Upon consent approval, request financial data via the `/FI/request` API.  
+- The AA server generates a unique session ID and forwards the request to relevant FIPs as per the consent details.
 
-### Step 1: Customer Registration with AA
-Customers can register with the Ink Account Aggregator using either the Ink mobile app or the web platform. Upon registration, customers receive a unique handle or AA ID, such as `yourname@ink-aa` or their mobile number `9999999999@ink`. This virtual user handle can be provided to FIUs for consent requests, similar to a UPI handle for payment collections.
+#### 2. **Receiving Data**  
+- Wait for the "Data Ready" notification from Ink AA, signaling data availability.  
+- Retrieve the data securely from the AA server.
 
-### Step 2: Customer Linking Their Financial Accounts
-Customers need to link their financial accounts to their unique Ink AA ID. The authentication process is simple and typically involves receiving an OTP on the customer's registered mobile number from their Financial Institution.
+---
 
-### Step 3: Securely Share Financial Information
-With their accounts linked, customers can accept or reject consent requests from FIUs and share their financial account information for their selected accounts. This can be easily managed through the Ink mobile or web app. Once consent is granted, FIUs can request financial information from the specified accounts through the Ink AA.
+## Understanding AA Workflows and Customer Interaction  
 
-## Integrating with Our FIU Module
+Ink AA empowers customers to securely share their financial data. The process is intuitive and includes:  
 
-We have already developed the core functionality of the FIU module, simplifying your integration with an AA. This allows you to focus on building your application once you have access to the decrypted data.
+### 🛠️ **Step 1: Customer Registration with AA**  
+- Customers register using the Ink mobile app or web platform.  
+- Upon registration, they receive a unique AA handle, such as:  
+  - `yourname@ink`  
+  - `9999999999@ink` (mobile-based handle).  
 
-Our FIU sandbox environment is continuously available for your use. It's worth noting that the FIU sandbox is agnostic to any specific AA and can interface with any account aggregator. This is achieved based on the handle of the AA user, for example, `customer1@ink` will redirect to the 'Ink AA'.
+This handle is shared with FIUs for initiating consent requests, similar to a UPI handle for payments.  
 
-Our data schemas adhere to the [ReBIT FIType schemas](https://api.rebit.org.in/schema).
+---
+
+### 🔗 **Step 2: Linking Financial Accounts**  
+- Customers link their financial accounts by authenticating with their Financial Institution using an OTP.  
+- This step ensures all linked accounts are ready for data sharing.  
+
+---
+
+### 🔐 **Step 3: Secure Sharing of Financial Information**  
+- Customers approve or reject consent requests directly from the Ink app.  
+- Approved consents enable FIUs to securely access specified financial data via Ink AA.
+
+---
+
+## Integrating with Our FIU Module  
+
+Ink AA simplifies integration for FIUs by offering a pre-built **FIU module**. This allows you to:  
+- Focus on building your application after receiving decrypted data.  
+- Leverage our **FIU sandbox environment** for testing and development.
+
+### Key Highlights of the FIU Module:
+- Compatible with any AA, using the customer's AA handle (e.g., `customer1@ink` redirects to Ink AA).  
+- Adheres to [ReBIT FIType schemas](https://api.rebit.org.in/schema) for seamless data handling.  
+
+### ⚡ Why Choose Our FIU Module?  
+- Reduces development effort by providing core functionality.  
+- Ensures compliance with the latest ecosystem standards.  
+
+---
+
+By following this guide, you’ll be ready to integrate efficiently with Ink AA and the broader AA ecosystem. Let us help you unlock the full potential of secure financial data sharing!  
+
+For any assistance, reach out to our support team at **connect@ink-aa.com**.  
+
