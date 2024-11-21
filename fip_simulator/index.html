@@ -1,0 +1,1210 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.45">
+    
+    
+      
+        <title>FIP API - Developer Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.0253249f.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../css/custom.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#fip-api" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Developer Docs" class="md-header__button md-logo" aria-label="Developer Docs" data-md-component="logo">
+      
+  <img src="../images/ic_splash.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Developer Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              FIP API
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Developer Docs" class="md-nav__button md-logo" aria-label="Developer Docs" data-md-component="logo">
+      
+  <img src="../images/ic_splash.png" alt="logo">
+
+    </a>
+    Developer Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../get_started/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Get Started
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ink_aa_register/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Registering with Ink AA
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ink_aa_integration/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    TSP Integration with Ink AA
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ink_ui_integration/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    UI Integration with Ink AA
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ink_fiu_integration/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Integrating with Ink FIU
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../how_to/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    How-To
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../guidelines/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Guidelines
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#api-request" class="md-nav__link">
+    <span class="md-ellipsis">
+      API Request
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="API Request">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#account-discover" class="md-nav__link">
+    <span class="md-ellipsis">
+      Account Discover
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#request-headers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Request headers
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Request headers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#account-linking" class="md-nav__link">
+    <span class="md-ellipsis">
+      Account Linking
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#request-headers_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Request headers
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Request headers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#account-unlinking" class="md-nav__link">
+    <span class="md-ellipsis">
+      Account Unlinking
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#request-headers_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Request headers
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Request headers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#account-confirm-token" class="md-nav__link">
+    <span class="md-ellipsis">
+      Account Confirm Token
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#request-headers_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Request headers
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Request headers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fi-request" class="md-nav__link">
+    <span class="md-ellipsis">
+      FI request
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#request-headers_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Request headers
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Request headers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fi-fetch" class="md-nav__link">
+    <span class="md-ellipsis">
+      FI Fetch
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#request-headers_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      Request headers
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Request headers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#consent-notifications" class="md-nav__link">
+    <span class="md-ellipsis">
+      Consent Notifications
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#request-headers_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      Request headers
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Request headers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#consent" class="md-nav__link">
+    <span class="md-ellipsis">
+      Consent
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#request-headers_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      Request headers
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Request headers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#heartbeat" class="md-nav__link">
+    <span class="md-ellipsis">
+      Heartbeat
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#request-headers_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      Request headers
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="fip-api">FIP API</h1>
+<p>This is a simulator implementation of the FIP API and can be used for testing the Account Aggregator flows as part of the ecosystem. </p>
+<h2 id="api-request">API Request</h2>
+<p>The API URL to be used is <code>&lt;Root API Endpoint&gt;/&lt;FIP API&gt;</code> as per ReBIT FIP API Specs.</p>
+<h3 id="account-discover">Account Discover</h3>
+<p>HTTP METHOD: <code>POST</code></p>
+<p>URL: <code>http://api.ink-aa.in/ConnectHub/V1/Accounts/discover</code></p>
+<h2 id="request-headers">Request headers</h2>
+<p>Below <code>http</code> headers need to be set as part of each request</p>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th style="text-align: center;">Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>content-Type</code></td>
+<td style="text-align: center;"><code>application/json</code></td>
+</tr>
+<tr>
+<td><code>Accept</code></td>
+<td style="text-align: center;"><code>application/json</code></td>
+</tr>
+<tr>
+<td><code>aa_api_key</code></td>
+<td style="text-align: center;"><code>eyJraWQiOiJrZXlJZDEiLCJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwODAvb3BlbmlkLWNvbm5lY3Qtc2VydmVyLXdlYmFwcC8iLCJhdWQiOiJodHRwOi8vbG9jYWxob3N0OjkwOTAvQ29ubmVjdEh1Yi9WMS8iLCJleHAiOjE2MTMxMjM0NDAsImp0aSI6Ii11NmVNQXMxZGxpWGtPeWVYZGd3cmciLCJpYXQiOjE1ODE1ODc0NDAsIm5iZiI6MTU4MTU4NzM4MCwic3ViIjoibWFub2pAZmludnUuaW4ifQ.NlBDFmCh8SsX9T9eFZoiilfIkYObFpe57JQiSV-yc4Svt6AaHQFq3IT_0Z3I4880HixSvfcFCAUcP_meYguYk6Qp7YpTBMQ-S9j3ekcMnL-whDkR2dmChrgGI-ZaXtz-zlQXmfUNJiPKKJm8Ca68Bxi7lzvgF5YMxgz99m8Hj0ia1Ax3a468mo8JtvxelOrjYT-yVZDlH22Qo4INrdl3kIO_jDRB-AGQuq3095xjRciX-_zDK-a7_q_UyKRKjDnUjXkpiMzGfeilzfqMh-4PFfIXdQTF612QrSk7oZwF0XvqmjzQJYaGfPqdXtPcT3G7WDuS_YAdAQW5vIjAW96pXQ</code></td>
+</tr>
+<tr>
+<td><code>x-jws-signature</code></td>
+<td style="text-align: center;"><code>eyJhbGciOiJSUzI1NiIsImtpZCI6ImY2NzZiNjg4LTA3YTItNDUwYi1hYmI1LTU3ZmJiOThlY2FiZSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..jQMoIsNMjEd8cNKk2Fsktr3-RYT8D6elSGt-_hSxKjTkXNyIVh-Y0tPIZCi1Cs43dKs5apTKIwUZO4Gmpa7vFkfn0Idhv63B-lcaDY85Q4cZLcH34mIeu3M9j6Pi1wU3rS76kjJJfDu91QZLfFpxgRDg4PTw8CfVyt4doxcuV3bqIUfbAJo3y38li3VSW4HDK4uA8Pnt0oQmmUSL-vpI49NYC627VbSAcl4VY-QpGmmHRbYHwMs3XXbSeRGtAXkjIPEr9A6n2olPHwFRX_lVFLQqx8iiZAHjJVXg4-6llErpklx2ydrkTQJaYtecEv88BPur6mOFgo55pEa6bZnrmg</code></td>
+</tr>
+</tbody>
+</table>
+<p>Request Body</p>
+<div class="codehilite"><pre><span></span><code><span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="s">&quot;ver&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;1.0&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="s">&quot;timestamp&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;2019-04-29T04:04:44.955Z&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="s">&quot;txnid&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;8399263c-4a15-11e8-bcd1-0277a9fbfedc&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="s">&quot;Customer&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="s">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;jay@ink-aa&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s">&quot;Identifiers&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">          </span><span class="p">{</span>
+<span class="w">      </span><span class="s">&quot;category&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;STRONG&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="s">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;MOBILE&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="s">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;8600045504&quot;</span>
+<span class="w">          </span><span class="p">}</span>
+<span class="w">        </span><span class="p">]</span>
+<span class="w">      </span><span class="p">},</span>
+<span class="w">       </span><span class="s">&quot;FITypes&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="s">&quot;DEPOSIT&quot;</span>
+<span class="w">      </span><span class="p">]</span>
+<span class="w">    </span><span class="p">}</span>
+</code></pre></div>
+
+<p>Response Expected: </p>
+<div class="codehilite"><pre><span></span><code>    {
+        &quot;ver&quot;: &quot;1.0&quot;,
+        &quot;timestamp&quot;: &quot;2020-04-07T06:27:11.243+0000&quot;,
+        &quot;txnid&quot;: &quot;8399263c-4a15-11e8-bcd1-0277a9fbfedc&quot;,
+        &quot;DiscoveredAccounts&quot;: [
+      {
+          &quot;FIType&quot;: &quot;RECURRING_DEPOSIT&quot;,
+          &quot;accType&quot;: &quot;DEFAULT&quot;,
+          &quot;accRefNumber&quot;: &quot;00001222&quot;,
+          &quot;maskedAccNumber&quot;: &quot;XXXXXXXX3833&quot;
+      },
+      {
+          &quot;FIType&quot;: &quot;TERM-DEPOSIT&quot;,
+          &quot;accType&quot;: &quot;DEFAULT&quot;,
+          &quot;accRefNumber&quot;: &quot;03948856668067&quot;,
+          &quot;maskedAccNumber&quot;: &quot;XXXXXXXXX8067&quot;
+      },
+      {
+          &quot;FIType&quot;: &quot;DEPOSIT&quot;,
+          &quot;accType&quot;: &quot;CURRENT&quot;,
+          &quot;accRefNumber&quot;: &quot;03948856668800&quot;,
+          &quot;maskedAccNumber&quot;: &quot;XXXXXXXXX8000&quot;
+      },
+      {
+          &quot;FIType&quot;: &quot;DEPOSIT&quot;,
+          &quot;accType&quot;: &quot;SAVINGS&quot;,
+          &quot;accRefNumber&quot;: &quot;REF0009090&quot;,
+          &quot;maskedAccNumber&quot;: &quot;XXXXXX9090&quot;
+      }
+        ]
+    }
+</code></pre></div>
+
+<h3 id="account-linking">Account Linking</h3>
+<p>For simulation purpose, the customer account authentication is TOKEN based and an OTP is sent to the mobile no of the account holder. </p>
+<p>HTTP METHOD: <code>POST</code></p>
+<p>URL: <code>http://api.ink-aa.in/ConnectHub/V1/Accounts/link</code></p>
+<h2 id="request-headers_1">Request headers</h2>
+<p>Below <code>http</code> headers need to be set as part of each request</p>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th style="text-align: center;">Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>content-Type</code></td>
+<td style="text-align: center;"><code>application/json</code></td>
+</tr>
+<tr>
+<td><code>Accept</code></td>
+<td style="text-align: center;"><code>application/json</code></td>
+</tr>
+<tr>
+<td><code>aa_api_key</code></td>
+<td style="text-align: center;"><code>eyJraWQiOiJrZXlJZDEiLCJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwODAvb3BlbmlkLWNvbm5lY3Qtc2VydmVyLXdlYmFwcC8iLCJhdWQiOiJodHRwOi8vbG9jYWxob3N0OjkwOTAvQ29ubmVjdEh1Yi9WMS8iLCJleHAiOjE2MTMxMjM0NDAsImp0aSI6Ii11NmVNQXMxZGxpWGtPeWVYZGd3cmciLCJpYXQiOjE1ODE1ODc0NDAsIm5iZiI6MTU4MTU4NzM4MCwic3ViIjoibWFub2pAZmludnUuaW4ifQ.NlBDFmCh8SsX9T9eFZoiilfIkYObFpe57JQiSV-yc4Svt6AaHQFq3IT_0Z3I4880HixSvfcFCAUcP_meYguYk6Qp7YpTBMQ-S9j3ekcMnL-whDkR2dmChrgGI-ZaXtz-zlQXmfUNJiPKKJm8Ca68Bxi7lzvgF5YMxgz99m8Hj0ia1Ax3a468mo8JtvxelOrjYT-yVZDlH22Qo4INrdl3kIO_jDRB-AGQuq3095xjRciX-_zDK-a7_q_UyKRKjDnUjXkpiMzGfeilzfqMh-4PFfIXdQTF612QrSk7oZwF0XvqmjzQJYaGfPqdXtPcT3G7WDuS_YAdAQW5vIjAW96pXQ</code></td>
+</tr>
+<tr>
+<td><code>x-jws-signature</code></td>
+<td style="text-align: center;"><code>eyJhbGciOiJSUzI1NiIsImtpZCI6ImY2NzZiNjg4LTA3YTItNDUwYi1hYmI1LTU3ZmJiOThlY2FiZSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..M2PpsHVPtxD07C93NR_8yzYBCO2REO-7YHbdEoDlsIDE36-6J6DkYKiC-2o86ykn7oGls8g8FYKPVMU7NdcIos0eAdK-Z4uAhnGcGB5XpleMCLJL7KJFpXbCeo2Nn2zRAO07p0jjr4vQNaVqXo4rKNQzHdtjhvVAeV5M7fUYHPVai3ghTrbuSChh4G12xDXq6pAexDnxWKiDdqamiqyRj9856h1aCkbKy6d3rm3xweqPjkUR3tMzQZzCNzlYTO1DFGn6xo6nIH_OlbUMYumqzkc6xJu7gTWriDh_gplsvrhN8TnzM7r3SK0nSyFHwuALCxShCOIZPw8_ep7plRjRtA</code></td>
+</tr>
+</tbody>
+</table>
+<p>Request Body</p>
+<div class="codehilite"><pre><span></span><code><span class="w">    </span><span class="err">{</span>
+<span class="w">      </span><span class="ss">&quot;ver&quot;</span><span class="err">:</span><span class="w"> </span><span class="ss">&quot;1.0&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="ss">&quot;timestamp&quot;</span><span class="err">:</span><span class="w"> </span><span class="ss">&quot;2018-05-09T17:51:18.412Z&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="ss">&quot;txnid&quot;</span><span class="err">:</span><span class="w"> </span><span class="ss">&quot;f35761ac-4a18-11e8-96ff-0277a9fbfedc&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="ss">&quot;Customer&quot;</span><span class="err">:</span><span class="w"> </span><span class="err">{</span>
+<span class="w">        </span><span class="ss">&quot;id&quot;</span><span class="err">:</span><span class="w"> </span><span class="ss">&quot;jay@ink-aa&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="ss">&quot;Accounts&quot;</span><span class="err">:</span><span class="w"> </span><span class="o">[</span>
+
+<span class="n">           {</span>
+<span class="n">          &quot;FIType&quot;: &quot;DEPOSIT&quot;,</span>
+<span class="n">          &quot;accType&quot;: &quot;CURRENT&quot;,</span>
+<span class="n">          &quot;accRefNumber&quot;: &quot;03948856668800&quot;,</span>
+<span class="n">          &quot;maskedAccNumber&quot;: &quot;XXXXXXXXX8000&quot;</span>
+<span class="n">      }</span>
+<span class="n">        </span><span class="o">]</span>
+<span class="w">      </span><span class="err">}</span>
+<span class="w">    </span><span class="err">}</span>
+</code></pre></div>
+
+<p>Response Expected: </p>
+<div class="codehilite"><pre><span></span><code>    {
+        &quot;ver&quot;: &quot;1.0&quot;,
+        &quot;timestamp&quot;: &quot;2020-04-07T06:29:53.676+0000&quot;,
+        &quot;txnid&quot;: &quot;f35761ac-4a18-11e8-96ff-0277a9fbfedc&quot;,
+        &quot;AuthenticatorType&quot;: &quot;TOKEN&quot;,
+        &quot;RefNumber&quot;: &quot;f455409f-6d06-4c8a-ac5a-34c6d78d467a&quot;
+    }
+</code></pre></div>
+
+<h3 id="account-unlinking">Account Unlinking</h3>
+<p>For simulation purpose, The method is used to delete a previously established account linkage to the user’s profile. </p>
+<p>HTTP METHOD: <code>DELETE</code></p>
+<p>URL: <code>http://api.ink-aa.in/ConnectHub/V1/Accounts/link</code></p>
+<h2 id="request-headers_2">Request headers</h2>
+<p>Below <code>http</code> headers need to be set as part of each request</p>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th style="text-align: center;">Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>content-Type</code></td>
+<td style="text-align: center;"><code>application/json</code></td>
+</tr>
+<tr>
+<td><code>Accept</code></td>
+<td style="text-align: center;"><code>application/json</code></td>
+</tr>
+<tr>
+<td><code>aa_api_key</code></td>
+<td style="text-align: center;"><code>eyJraWQiOiJrZXlJZDEiLCJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwODAvb3BlbmlkLWNvbm5lY3Qtc2VydmVyLXdlYmFwcC8iLCJhdWQiOiJodHRwOi8vbG9jYWxob3N0OjkwOTAvQ29ubmVjdEh1Yi9WMS8iLCJleHAiOjE2MTMxMjM0NDAsImp0aSI6Ii11NmVNQXMxZGxpWGtPeWVYZGd3cmciLCJpYXQiOjE1ODE1ODc0NDAsIm5iZiI6MTU4MTU4NzM4MCwic3ViIjoibWFub2pAZmludnUuaW4ifQ.NlBDFmCh8SsX9T9eFZoiilfIkYObFpe57JQiSV-yc4Svt6AaHQFq3IT_0Z3I4880HixSvfcFCAUcP_meYguYk6Qp7YpTBMQ-S9j3ekcMnL-whDkR2dmChrgGI-ZaXtz-zlQXmfUNJiPKKJm8Ca68Bxi7lzvgF5YMxgz99m8Hj0ia1Ax3a468mo8JtvxelOrjYT-yVZDlH22Qo4INrdl3kIO_jDRB-AGQuq3095xjRciX-_zDK-a7_q_UyKRKjDnUjXkpiMzGfeilzfqMh-4PFfIXdQTF612QrSk7oZwF0XvqmjzQJYaGfPqdXtPcT3G7WDuS_YAdAQW5vIjAW96pXQ</code></td>
+</tr>
+<tr>
+<td><code>x-jws-signature</code></td>
+<td style="text-align: center;"><code>eyJhbGciOiJSUzI1NiIsImtpZCI6ImY2NzZiNjg4LTA3YTItNDUwYi1hYmI1LTU3ZmJiOThlY2FiZSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..VWuBoCL0FUiq5_p_v12jP63n6VPFH7qnjOEO7wPa--Ft9n6GhDaQlP-gU7zutLiY7xYQC_WzSrYo0Ev77xoQ7gz9VCLS9pSebJImBtSH0NvWis7Q9aazB85cVekf9pfgmm0Y2o6ZNcVnNDj9mawQzU_eDKDDONaiNwg_abK9K3_dJ4bqfCWUCRTF9Sf0wRNPxafwhXZzz1GL56Asubk1O1vL5wL_DMqij377F8rGf1S4EBgfiQ8SM6dWwdRP-XB4lYymFFdKM6lbYn-cUD7ztHJAtqAhT0EDkqQs4cbLayWDFVo8uGyJ4dO6hTAx8eSfA9-Xcn4YSZFRa1onnBMOtg</code></td>
+</tr>
+</tbody>
+</table>
+<p>Request Body</p>
+<div class="codehilite"><pre><span></span><code><span class="w">      </span><span class="err">{</span>
+<span class="w">          </span><span class="ss">&quot;ver&quot;</span><span class="err">:</span><span class="w"> </span><span class="ss">&quot;1.0&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="ss">&quot;timestamp&quot;</span><span class="err">:</span><span class="w"> </span><span class="ss">&quot;2020-04-08T04:32:48.875+0000&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="ss">&quot;txnid&quot;</span><span class="err">:</span><span class="w"> </span><span class="ss">&quot;39081877-b011-4c79-9255-f1d41bbb7f55&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="ss">&quot;Account&quot;</span><span class="err">:</span><span class="w"> </span><span class="err">{</span>
+<span class="w">        </span><span class="ss">&quot;customerAddress&quot;</span><span class="err">:</span><span class="w"> </span><span class="ss">&quot;jay@ink-aa&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="ss">&quot;linkRefNumber&quot;</span><span class="err">:</span><span class="w"> </span><span class="ss">&quot;03948856668800&quot;</span>
+<span class="w">          </span><span class="err">}</span>
+<span class="w">      </span><span class="err">}</span>
+</code></pre></div>
+
+<p>Response Expected: </p>
+<div class="codehilite"><pre><span></span><code><span class="w">    </span><span class="err">{</span>
+<span class="w">        </span><span class="ss">&quot;ver&quot;</span><span class="err">:</span><span class="w"> </span><span class="ss">&quot;1.0&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="ss">&quot;timestamp&quot;</span><span class="err">:</span><span class="w"> </span><span class="ss">&quot;2020-04-08T04:32:48.875+0000&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="ss">&quot;txnid&quot;</span><span class="err">:</span><span class="w"> </span><span class="ss">&quot;39081877-b011-4c79-9255-f1d41bbb7f55&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="ss">&quot;AccLinkDetails&quot;</span><span class="err">:</span><span class="w"> </span><span class="err">{</span>
+<span class="w">      </span><span class="ss">&quot;customerAddress&quot;</span><span class="err">:</span><span class="w"> </span><span class="ss">&quot;jay@ink-aa&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="ss">&quot;linkRefNumber&quot;</span><span class="err">:</span><span class="w"> </span><span class="ss">&quot;03948856668800&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="ss">&quot;status&quot;</span><span class="err">:</span><span class="w"> </span><span class="ss">&quot;DELINKED&quot;</span>
+<span class="w">        </span><span class="err">}</span>
+<span class="w">    </span><span class="err">}</span>
+</code></pre></div>
+
+<h3 id="account-confirm-token">Account Confirm Token</h3>
+<p>HTTP METHOD: <code>GET</code></p>
+<p>URL: <code>http://api.ink-aa.in/ConnectHub/V1/Accounts/link/{RefNumber}/{Token}</code></p>
+<p>e.g. : http://api.ink-aa.in/ConnectHub/V1/Accounts/link/f455409f-6d06-4c8a-ac5a-34c6d78d467a/939504</p>
+<h2 id="request-headers_3">Request headers</h2>
+<p>Below <code>http</code> headers need to be set as part of each request</p>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th style="text-align: center;">Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>content-Type</code></td>
+<td style="text-align: center;"><code>application/json</code></td>
+</tr>
+<tr>
+<td><code>Accept</code></td>
+<td style="text-align: center;"><code>application/json</code></td>
+</tr>
+<tr>
+<td><code>aa_api_key</code></td>
+<td style="text-align: center;"><code>eyJraWQiOiJrZXlJZDEiLCJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwODAvb3BlbmlkLWNvbm5lY3Qtc2VydmVyLXdlYmFwcC8iLCJhdWQiOiJodHRwOi8vbG9jYWxob3N0OjkwOTAvQ29ubmVjdEh1Yi9WMS8iLCJleHAiOjE2MTMxMjM0NDAsImp0aSI6Ii11NmVNQXMxZGxpWGtPeWVYZGd3cmciLCJpYXQiOjE1ODE1ODc0NDAsIm5iZiI6MTU4MTU4NzM4MCwic3ViIjoibWFub2pAZmludnUuaW4ifQ.NlBDFmCh8SsX9T9eFZoiilfIkYObFpe57JQiSV-yc4Svt6AaHQFq3IT_0Z3I4880HixSvfcFCAUcP_meYguYk6Qp7YpTBMQ-S9j3ekcMnL-whDkR2dmChrgGI-ZaXtz-zlQXmfUNJiPKKJm8Ca68Bxi7lzvgF5YMxgz99m8Hj0ia1Ax3a468mo8JtvxelOrjYT-yVZDlH22Qo4INrdl3kIO_jDRB-AGQuq3095xjRciX-_zDK-a7_q_UyKRKjDnUjXkpiMzGfeilzfqMh-4PFfIXdQTF612QrSk7oZwF0XvqmjzQJYaGfPqdXtPcT3G7WDuS_YAdAQW5vIjAW96pXQ</code></td>
+</tr>
+<tr>
+<td><code>x-jws-signature</code></td>
+<td style="text-align: center;"><code>eyJhbGciOiJSUzI1NiIsImtpZCI6ImY2NzZiNjg4LTA3YTItNDUwYi1hYmI1LTU3ZmJiOThlY2FiZSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..Ql48ozk3SHTLSFJd445BDo4CcWr9V_V3zcaTJxaBh9kPAtKq-EgyDsECDdG8hlKFU-tzTILBJQ4XWgk4Oqw6zcFO5O8CUueagsXZfBLc9CXfc_YCVm3Zl09afrw7-joYRAjDoyDa5iLKJ-zikuzjkpXPP3V8IIFt3ez1OEDKQkGO1HyBtismuHd__myGZizx1wmeLOtPZfYZ-7gMHW_ImDNa-I9vl0Gf7XQYi2MDF9zvWDnv68mDH1e03pHl4OtoAZCDAAdm7nHtTgxVimGxxY_WtcwcSQ0i9NMU0xPeZ6Tnljo7eb4zrqRHkaF0kIVdK6kOS8MiolH4liuL39l92w</code></td>
+</tr>
+</tbody>
+</table>
+<p>Request Body</p>
+<p>Put the SMS received on mobile in <token>{OTP sms}</token></p>
+<div class="codehilite"><pre><span></span><code>e.g.
+http://api.ink-aa.in/ConnectHub/V1/Accounts/link/9d4dd3b3-7510-401a-b148-a79f03ac01d9/689612
+</code></pre></div>
+
+<p>Response Expected: </p>
+<div class="codehilite"><pre><span></span><code><span class="w">    </span><span class="err">{</span>
+<span class="w">        </span><span class="ss">&quot;ver&quot;</span><span class="err">:</span><span class="w"> </span><span class="ss">&quot;1.0&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="ss">&quot;timestamp&quot;</span><span class="err">:</span><span class="w"> </span><span class="ss">&quot;2020-04-07T06:54:40.480+0000&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="ss">&quot;txnid&quot;</span><span class="err">:</span><span class="w"> </span><span class="ss">&quot;f35761ac-4a18-11e8-96ff-0277a9fbfedc&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="ss">&quot;AccLinkDetails&quot;</span><span class="err">:</span><span class="w"> </span><span class="o">[</span>
+<span class="n">      {</span>
+<span class="n">          &quot;customerAddress&quot;: &quot;jay@ink-aa&quot;,</span>
+<span class="n">          &quot;linkRefNumber&quot;: &quot;03948856668800&quot;,</span>
+<span class="n">          &quot;accRefNumber&quot;: &quot;03948856668800&quot;,</span>
+<span class="n">          &quot;status&quot;: &quot;LINKED&quot;</span>
+<span class="n">      }</span>
+<span class="n">        </span><span class="o">]</span>
+<span class="w">    </span><span class="err">}</span>
+</code></pre></div>
+
+<h3 id="fi-request">FI request</h3>
+<p>HTTP METHOD: <code>POST</code></p>
+<p>URL: <code>http://api.ink-aa.in/ConnectHub/V1/FI/request</code></p>
+<h2 id="request-headers_4">Request headers</h2>
+<p>Below <code>http</code> headers need to be set as part of each request</p>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th style="text-align: center;">Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>content-Type</code></td>
+<td style="text-align: center;"><code>application/json</code></td>
+</tr>
+<tr>
+<td><code>Accept</code></td>
+<td style="text-align: center;"><code>application/json</code></td>
+</tr>
+<tr>
+<td><code>aa_api_key</code></td>
+<td style="text-align: center;"><code>eyJraWQiOiJrZXlJZDEiLCJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwODAvb3BlbmlkLWNvbm5lY3Qtc2VydmVyLXdlYmFwcC8iLCJhdWQiOiJodHRwOi8vbG9jYWxob3N0OjkwOTAvQ29ubmVjdEh1Yi9WMS8iLCJleHAiOjE2MTMxMjM0NDAsImp0aSI6Ii11NmVNQXMxZGxpWGtPeWVYZGd3cmciLCJpYXQiOjE1ODE1ODc0NDAsIm5iZiI6MTU4MTU4NzM4MCwic3ViIjoibWFub2pAZmludnUuaW4ifQ.NlBDFmCh8SsX9T9eFZoiilfIkYObFpe57JQiSV-yc4Svt6AaHQFq3IT_0Z3I4880HixSvfcFCAUcP_meYguYk6Qp7YpTBMQ-S9j3ekcMnL-whDkR2dmChrgGI-ZaXtz-zlQXmfUNJiPKKJm8Ca68Bxi7lzvgF5YMxgz99m8Hj0ia1Ax3a468mo8JtvxelOrjYT-yVZDlH22Qo4INrdl3kIO_jDRB-AGQuq3095xjRciX-_zDK-a7_q_UyKRKjDnUjXkpiMzGfeilzfqMh-4PFfIXdQTF612QrSk7oZwF0XvqmjzQJYaGfPqdXtPcT3G7WDuS_YAdAQW5vIjAW96pXQ</code></td>
+</tr>
+<tr>
+<td><code>x-jws-signature</code></td>
+<td style="text-align: center;"><code>eyJhbGciOiJSUzI1NiIsImtpZCI6ImY2NzZiNjg4LTA3YTItNDUwYi1hYmI1LTU3ZmJiOThlY2FiZSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..oS6xL_CyLpxbETG5fz19CzAOYMWqswInpfzHpByh5vzGUcnLzVt649rjw_hH0af_KdnDrSaDHVns1ljZyrXGYac9aAuF06fzjR4vTTdWmVdhOZUBmeNSw5vbYqSeVoE5I7q3NnE22BT3x1De5UahCdqhDVkJbE7JZb5mnUxVAlnbu2MPfNGQcotVL3_Awv83h5Q_4pf0qtioBhCSKBZOKjUKyP1ty3owY50xUdSmcIlwkWuKesUJujl1NQW8BplO4ZMnOHwLjlezJwOlSZUgSXA9dN2_z5Ftm0CsWdt6HTFRmvFoukndQAfBu__q3BGMaD--R6aXyCiuknCcW6Kk3g</code></td>
+</tr>
+</tbody>
+</table>
+<p>Request Body</p>
+<div class="codehilite"><pre><span></span><code>    <span class="p">{</span>
+        <span class="s">&quot;ver&quot;</span><span class="p">:</span> <span class="s">&quot;1.0&quot;</span><span class="p">,</span>
+        <span class="s">&quot;timestamp&quot;</span><span class="p">:</span> <span class="s">&quot;2020-04-07T07:14:37.217+0000&quot;</span><span class="p">,</span>
+        <span class="s">&quot;txnid&quot;</span><span class="p">:</span> <span class="s">&quot;50aabff2-0278-4840-b338-845e9f4d9955&quot;</span><span class="p">,</span>
+        <span class="s">&quot;FIDataRange&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="s">&quot;from&quot;</span><span class="p">:</span> <span class="s">&quot;2020-04-07T07:14:37.183+0000&quot;</span><span class="p">,</span>
+      <span class="s">&quot;to&quot;</span><span class="p">:</span> <span class="s">&quot;2021-04-06T07:14:16.676+0000&quot;</span>
+        <span class="p">},</span>
+        <span class="s">&quot;Consent&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="s">&quot;id&quot;</span><span class="p">:</span> <span class="s">&quot;2503a18c-c7f2-4112-9830-44cc63e91252&quot;</span><span class="p">,</span>
+      <span class="s">&quot;digitalSignature&quot;</span><span class="p">:</span> <span class="s">&quot;d8umo2BKiMtRSceTPqsQW0VTzyeysjw0Czn5V89QMVTu1M9XF1VQ7OX8DSfC9NQC_Ktuf4R3I5qubozsGS161xsh0YuT-uFRktj4fM1eAHq0xGWN2ubn1yXZclyd8hEGSGqI8xybZfyZvqt3E7L_JlrCbwkqgt8QWgQWhen00syxVgdTZdAEUN3rabmi5Po4qRFPzHR7uYVrcJPwpHVq7hHsosUMjp-zGii0uNKKwLgu22p0LgqHYyte8hEDpm2RsJci3sXy56XRtgfERuBpkKTBcPB9LR6bA0t0LfPAChhWjw3-_kfEokLo-2LEGjSIUBevBb485ENYXKCGbw_5jg&quot;</span>
+        <span class="p">},</span>
+        <span class="s">&quot;KeyMaterial&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="s">&quot;cryptoAlg&quot;</span><span class="p">:</span> <span class="s">&quot;ECDH&quot;</span><span class="p">,</span>
+      <span class="s">&quot;curve&quot;</span><span class="p">:</span> <span class="s">&quot;Curve25519&quot;</span><span class="p">,</span>
+      <span class="s">&quot;params&quot;</span><span class="p">:</span> <span class="s">&quot;params&quot;</span><span class="p">,</span>
+      <span class="s">&quot;DHPublicKey&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="s">&quot;expiry&quot;</span><span class="p">:</span> <span class="s">&quot;2021-04-06T07:14:16.676+0000&quot;</span><span class="p">,</span>
+          <span class="s">&quot;Parameters&quot;</span><span class="p">:</span> <span class="s">&quot;params&quot;</span><span class="p">,</span>
+          <span class="s">&quot;KeyValue&quot;</span><span class="p">:</span> <span class="s">&quot;-----BEGIN PUBLIC KEY-----MIIBMTCB6gYHKoZIzj0CATCB3gIBATArBgcqhkjOPQEBAiB/////////////////////////////////////////7TBEBCAqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqYSRShRAQge0Je0Je0Je0Je0Je0Je0Je0Je0Je0Je0JgtenHcQyGQEQQQqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq0kWiCuGaG4oIa04B7dLHdI0UySPU1+bXxhsinpxaJ+ztPZAiAQAAAAAAAAAAAAAAAAAAAAFN753qL3nNZYEmMaXPXT7QIBCANCAAQehfHbuun4dqgOlSB6lrWPwVQnncfOaAMR/kKyeDobDkILMYJmfMBA4L2fj/uFA7IU+4HmwL/QjhiT2bmMw6Ht-----END PUBLIC KEY-----&quot;</span>
+      <span class="p">},</span>
+      <span class="s">&quot;Nonce&quot;</span><span class="p">:</span> <span class="s">&quot;UzU4ashLJj3FAYKVeb3wmMoHqn+eo98uS1tUq10RNrs=&quot;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+</code></pre></div>
+
+<p>Response Expected: </p>
+<div class="codehilite"><pre><span></span><code>  {
+      &quot;ver&quot;: &quot;1.0&quot;,
+      &quot;timestamp&quot;: &quot;2020-04-07T07:17:16.579+0000&quot;,
+      &quot;txnid&quot;: &quot;50aabff2-0278-4840-b338-845e9f4d9955&quot;,
+      &quot;consentId&quot;: &quot;2503a18c-c7f2-4112-9830-44cc63e91252&quot;,
+      &quot;sessionId&quot;: &quot;931d1d33-e332-4ee2-b780-020d43ba69fd&quot;
+  }
+</code></pre></div>
+
+<h3 id="fi-fetch">FI Fetch</h3>
+<p>HTTP METHOD: <code>GET</code></p>
+<p>URL: <code>http://api.ink-aa.in/ConnectHub/V1/FI/fetch/{SessionID}</code>
+e.g. : http://api.ink-aa.in/ConnectHub/V1/FI/fetch/931d1d33-e332-4ee2-b780-020d43ba69fd</p>
+<h2 id="request-headers_5">Request headers</h2>
+<p>Below <code>http</code> headers need to be set as part of each request</p>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th style="text-align: center;">Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>content-Type</code></td>
+<td style="text-align: center;"><code>application/json</code></td>
+</tr>
+<tr>
+<td><code>Accept</code></td>
+<td style="text-align: center;"><code>application/json</code></td>
+</tr>
+<tr>
+<td><code>aa_api_key</code></td>
+<td style="text-align: center;"><code>eyJraWQiOiJrZXlJZDEiLCJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwODAvb3BlbmlkLWNvbm5lY3Qtc2VydmVyLXdlYmFwcC8iLCJhdWQiOiJodHRwOi8vbG9jYWxob3N0OjkwOTAvQ29ubmVjdEh1Yi9WMS8iLCJleHAiOjE2MTMxMjM0NDAsImp0aSI6Ii11NmVNQXMxZGxpWGtPeWVYZGd3cmciLCJpYXQiOjE1ODE1ODc0NDAsIm5iZiI6MTU4MTU4NzM4MCwic3ViIjoibWFub2pAZmludnUuaW4ifQ.NlBDFmCh8SsX9T9eFZoiilfIkYObFpe57JQiSV-yc4Svt6AaHQFq3IT_0Z3I4880HixSvfcFCAUcP_meYguYk6Qp7YpTBMQ-S9j3ekcMnL-whDkR2dmChrgGI-ZaXtz-zlQXmfUNJiPKKJm8Ca68Bxi7lzvgF5YMxgz99m8Hj0ia1Ax3a468mo8JtvxelOrjYT-yVZDlH22Qo4INrdl3kIO_jDRB-AGQuq3095xjRciX-_zDK-a7_q_UyKRKjDnUjXkpiMzGfeilzfqMh-4PFfIXdQTF612QrSk7oZwF0XvqmjzQJYaGfPqdXtPcT3G7WDuS_YAdAQW5vIjAW96pXQ</code></td>
+</tr>
+<tr>
+<td><code>x-jws-signature</code></td>
+<td style="text-align: center;"><code>eyJhbGciOiJSUzI1NiIsImtpZCI6ImY2NzZiNjg4LTA3YTItNDUwYi1hYmI1LTU3ZmJiOThlY2FiZSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..e1u2OaOBDRzlCDQE58320TQfwlP3Lw027FoCysaq8d4YduXtCkyBkgsSSMq45-E5dkldG9LT2rLoMKQRol3VKSv6LE93IN1wpbJmfezdCekGStHEFO5fNDylsHhq9IJs3bgt5EXvCbVqUQMwXy3SeEumqpH8sYtSzcUsj_R4wEn9ynhllUOKNEQHt2fpTl6BKr9JQOwJ5nlRSz3Rv-AJs-Bm2lkgg4_IlM1zj9Opdu7sMAtUH0f0wJOehy1gkdlxSqVkNtJI1EIKGsDpqm9xjFrOSfpdwbkAe2E0Nnp_J_Fs_eagNQLf_4Ji99ukAue24L5x88S0n1xx7vGEX8pSuA</code></td>
+</tr>
+</tbody>
+</table>
+<p>Response Expected: </p>
+<div class="codehilite"><pre><span></span><code>    <span class="p">{</span>
+        <span class="s">&quot;ver&quot;</span><span class="p">:</span> <span class="s">&quot;1.0&quot;</span><span class="p">,</span>
+        <span class="s">&quot;timestamp&quot;</span><span class="p">:</span> <span class="s">&quot;2020-04-07T07:24:09.185+0000&quot;</span><span class="p">,</span>
+        <span class="s">&quot;txnid&quot;</span><span class="p">:</span> <span class="s">&quot;50aabff2-0278-4840-b338-845e9f4d9955&quot;</span><span class="p">,</span>
+        <span class="s">&quot;FI&quot;</span><span class="p">:</span> <span class="p">[</span>
+      <span class="p">{</span>
+          <span class="s">&quot;fipID&quot;</span><span class="p">:</span> <span class="s">&quot;BARB0KIMXXX&quot;</span><span class="p">,</span>
+          <span class="s">&quot;data&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s">&quot;linkRefNumber&quot;</span><span class="p">:</span> <span class="s">&quot;03948856668800&quot;</span><span class="p">,</span>
+            <span class="s">&quot;maskedAccNumber&quot;</span><span class="p">:</span> <span class="s">&quot;XXXXXXXXX8000&quot;</span><span class="p">,</span>
+            <span class="s">&quot;encryptedFI&quot;</span><span class="p">:</span> <span class="s">&quot;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&quot;</span>
+        <span class="p">}</span>
+          <span class="p">],</span>
+          <span class="s">&quot;KeyMaterial&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s">&quot;cryptoAlg&quot;</span><span class="p">:</span> <span class="s">&quot;ECDH&quot;</span><span class="p">,</span>
+        <span class="s">&quot;curve&quot;</span><span class="p">:</span> <span class="s">&quot;Curve25519&quot;</span><span class="p">,</span>
+        <span class="s">&quot;params&quot;</span><span class="p">:</span> <span class="s">&quot;None&quot;</span><span class="p">,</span>
+        <span class="s">&quot;DHPublicKey&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s">&quot;expiry&quot;</span><span class="p">:</span> <span class="s">&quot;2020-04-08T07:24:09.185+0000&quot;</span><span class="p">,</span>
+            <span class="s">&quot;Parameters&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+            <span class="s">&quot;KeyValue&quot;</span><span class="p">:</span> <span class="s">&quot;-----BEGIN PUBLIC KEY-----MIIBMTCB6gYHKoZIzj0CATCB3gIBATArBgcqhkjOPQEBAiB/////////////////////////////////////////7TBEBCAqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqYSRShRAQge0Je0Je0Je0Je0Je0Je0Je0Je0Je0Je0JgtenHcQyGQEQQQqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq0kWiCuGaG4oIa04B7dLHdI0UySPU1+bXxhsinpxaJ+ztPZAiAQAAAAAAAAAAAAAAAAAAAAFN753qL3nNZYEmMaXPXT7QIBCANCAAR9JhxPpdggmkojZFrmTXiUabn9BWEBsxQpf4/93DUJM17b61y0tNqMOaCv+M3CkxxZ+blt6Bx4ByPpHkIOLoQ1-----END PUBLIC KEY-----&quot;</span>
+        <span class="p">},</span>
+        <span class="s">&quot;Nonce&quot;</span><span class="p">:</span> <span class="s">&quot;L33ZJco/0mvJOrgSVfd59p5ftsn21QWtAUELoKSUXkQ=&quot;</span>
+          <span class="p">}</span>
+      <span class="p">}</span>
+        <span class="p">]</span>
+    <span class="p">}</span>
+</code></pre></div>
+
+<h3 id="consent-notifications">Consent Notifications</h3>
+<p>HTTP METHOD: <code>POST</code></p>
+<p>URL: <code>http://api.ink-aa.in/ConnectHub/V1/Consent/Notification</code></p>
+<h2 id="request-headers_6">Request headers</h2>
+<p>Below <code>http</code> headers need to be set as part of each request</p>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th style="text-align: center;">Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>content-Type</code></td>
+<td style="text-align: center;"><code>application/json</code></td>
+</tr>
+<tr>
+<td><code>Accept</code></td>
+<td style="text-align: center;"><code>application/json</code></td>
+</tr>
+<tr>
+<td><code>aa_api_key</code></td>
+<td style="text-align: center;"><code>eyJraWQiOiJrZXlJZDEiLCJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwODAvb3BlbmlkLWNvbm5lY3Qtc2VydmVyLXdlYmFwcC8iLCJhdWQiOiJodHRwOi8vbG9jYWxob3N0OjkwOTAvQ29ubmVjdEh1Yi9WMS8iLCJleHAiOjE2MTMxMjM0NDAsImp0aSI6Ii11NmVNQXMxZGxpWGtPeWVYZGd3cmciLCJpYXQiOjE1ODE1ODc0NDAsIm5iZiI6MTU4MTU4NzM4MCwic3ViIjoibWFub2pAZmludnUuaW4ifQ.NlBDFmCh8SsX9T9eFZoiilfIkYObFpe57JQiSV-yc4Svt6AaHQFq3IT_0Z3I4880HixSvfcFCAUcP_meYguYk6Qp7YpTBMQ-S9j3ekcMnL-whDkR2dmChrgGI-ZaXtz-zlQXmfUNJiPKKJm8Ca68Bxi7lzvgF5YMxgz99m8Hj0ia1Ax3a468mo8JtvxelOrjYT-yVZDlH22Qo4INrdl3kIO_jDRB-AGQuq3095xjRciX-_zDK-a7_q_UyKRKjDnUjXkpiMzGfeilzfqMh-4PFfIXdQTF612QrSk7oZwF0XvqmjzQJYaGfPqdXtPcT3G7WDuS_YAdAQW5vIjAW96pXQ</code></td>
+</tr>
+<tr>
+<td><code>x-jws-signature</code></td>
+<td style="text-align: center;"><code>eyJhbGciOiJSUzI1NiIsImtpZCI6ImY2NzZiNjg4LTA3YTItNDUwYi1hYmI1LTU3ZmJiOThlY2FiZSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..Ye5-zRpQ5et1zydpTETMKp7kbyHhx_dOAOSYCWqHjXhxh6rm-ZpbIT4--6JKroLc_F9Juk6jhuV1vuE1hXv6-ii08c7zmuWS3dCduivvxlEmDLMaqX-sND1sWdrNh8IBmnDRnm3eszRGegVM1q7JjpsFs6XfRjjSkb-nNIoSjOTQmxA4V5KUMpPE2GIEYeiPikLkeRUAsNKklIyx_FiZDdQhHv-a5n3wncAguuDN0x6JzZO-YXQVktcEpzUGusfiDZeCOZtG3CpPOas9elBhWVbpQAcYxOQEkNgquGPtknx9wcBNTdWZgRou0_iBgtfRKRBiENKf-OKjKZIek6rpfg</code></td>
+</tr>
+</tbody>
+</table>
+<p>Request Body</p>
+<div class="codehilite"><pre><span></span><code><span class="w">      </span><span class="p">{</span>
+<span class="w">          </span><span class="s">&quot;ver&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;1.0&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="s">&quot;timestamp&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;2020-04-07T09:23:33.744+0000&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="s">&quot;txnid&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;f4a7674d-9f0c-4840-a3eb-45e7b9af0fc1&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="s">&quot;Notifier&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="s">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;AA&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;ink-aa-aa@ink-aa.in&quot;</span>
+<span class="w">          </span><span class="p">},</span>
+<span class="w">          </span><span class="s">&quot;ConsentStatusNotification&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="s">&quot;consentId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;264a3946-2c16-44cb-bcc2-6503d624d68d&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s">&quot;consentStatus&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;REVOKED&quot;</span>
+<span class="w">          </span><span class="p">}</span>
+<span class="w">      </span><span class="p">}</span>
+</code></pre></div>
+
+<p>Response Expected: </p>
+<div class="codehilite"><pre><span></span><code><span class="mf">200</span><span class="w"> </span><span class="n">OK</span>
+</code></pre></div>
+
+<h3 id="consent">Consent</h3>
+<p>HTTP METHOD: <code>POST</code></p>
+<p>URL: <code>http://api.ink-aa.in/ConnectHub/V1/Consent</code></p>
+<h2 id="request-headers_7">Request headers</h2>
+<p>Below <code>http</code> headers need to be set as part of each request</p>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th style="text-align: center;">Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>content-Type</code></td>
+<td style="text-align: center;"><code>application/json</code></td>
+</tr>
+<tr>
+<td><code>Accept</code></td>
+<td style="text-align: center;"><code>application/json</code></td>
+</tr>
+<tr>
+<td><code>aa_api_key</code></td>
+<td style="text-align: center;"><code>eyJraWQiOiJrZXlJZDEiLCJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwODAvb3BlbmlkLWNvbm5lY3Qtc2VydmVyLXdlYmFwcC8iLCJhdWQiOiJodHRwOi8vbG9jYWxob3N0OjkwOTAvQ29ubmVjdEh1Yi9WMS8iLCJleHAiOjE2MTMxMjM0NDAsImp0aSI6Ii11NmVNQXMxZGxpWGtPeWVYZGd3cmciLCJpYXQiOjE1ODE1ODc0NDAsIm5iZiI6MTU4MTU4NzM4MCwic3ViIjoibWFub2pAZmludnUuaW4ifQ.NlBDFmCh8SsX9T9eFZoiilfIkYObFpe57JQiSV-yc4Svt6AaHQFq3IT_0Z3I4880HixSvfcFCAUcP_meYguYk6Qp7YpTBMQ-S9j3ekcMnL-whDkR2dmChrgGI-ZaXtz-zlQXmfUNJiPKKJm8Ca68Bxi7lzvgF5YMxgz99m8Hj0ia1Ax3a468mo8JtvxelOrjYT-yVZDlH22Qo4INrdl3kIO_jDRB-AGQuq3095xjRciX-_zDK-a7_q_UyKRKjDnUjXkpiMzGfeilzfqMh-4PFfIXdQTF612QrSk7oZwF0XvqmjzQJYaGfPqdXtPcT3G7WDuS_YAdAQW5vIjAW96pXQ</code></td>
+</tr>
+<tr>
+<td><code>x-jws-signature</code></td>
+<td style="text-align: center;"><code>eyJhbGciOiJSUzI1NiIsImtpZCI6ImY2NzZiNjg4LTA3YTItNDUwYi1hYmI1LTU3ZmJiOThlY2FiZSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..CICFu3GS_eDrzBvvfuudi2AJ1cLI1bObtfdEKKV5YU9bct9hZr0BuWSNeg4mRDfg1y2XTQZuCuEv3tyPT_d9mSFc6v0Rz6QRdxC3WV83lDnEEcxW0kwKG01fM0WMZS3YXQGcqteejDLA6KBQD_fXRg40LiyPZXKe6uXAqSpBkHCajPrN3h7ViecnbTIbYQRxlKRCba8M-zOicUMUT0-iNHJQ5psVElQvWSH2DL3gkqxVdUXRAuVSvOXverkRK-qcgmUe2Rn59d_Zw6KttiwDDuFyw-aykMEehmgeP5grKWx4KU0oif-yyOU7-kOMTmN7zsD_XJVrL4eqoulMr54AxQ</code></td>
+</tr>
+</tbody>
+</table>
+<p>Request Body</p>
+<div class="codehilite"><pre><span></span><code>    {
+        &quot;ver&quot;: &quot;1.0&quot;,
+        &quot;txnid&quot;: &quot;0428ae6e-43b5-421e-9042-a532ced2f66d&quot;,
+        &quot;consentId&quot;: &quot;1c79f3ba-ec2e-4d8b-8a43-8c4190fcad92&quot;,
+        &quot;status&quot;: &quot;ACTIVE&quot;,
+        &quot;createTimestamp&quot;: &quot;2020-04-07T07:09:45.670+0000&quot;,
+        &quot;signedConsent&quot;: &quot;eyJhbGciOiJSUzI1NiIsImtpZCI6ImY2NzZiNjg4LTA3YTItNDUwYi1hYmI1LTU3ZmJiOThlY2FiZSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19.eyJjb25zZW50U3RhcnQiOjE1ODYyNDMzNzg4NzcsImNvbnNlbnRFeHBpcnkiOjE2MTc2OTI5NzY0NjYsImNvbnNlbnRNb2RlIjoiVklFVyIsImZldGNoVHlwZSI6IlBFUklPRElDIiwiY29uc2VudFR5cGVzIjpbIlNVTU1BUlkiLCJUUkFOU0FDVElPTlMiLCJQUk9GSUxFIl0sImZpVHlwZXMiOlsiREVQT1NJVCIsIlRFUk0tREVQT1NJVCJdLCJEYXRhQ29uc3VtZXIiOnsiaWQiOiJjb29raWVqYXItYWFAZmludnUuaW4iLCJ0eXBlIjoiQUEifSwiRGF0YVByb3ZpZGVyIjp7ImlkIjoiQkFSQjBLSU1YWFgiLCJ0eXBlIjoiRklQIn0sIkN1c3RvbWVyIjp7ImlkIjoiamF5QGZpbnZ1In0sIkFjY291bnRzIjpbeyJmaVR5cGUiOiJERVBPU0lUIiwiZmlwSWQiOiJCQVJCMEtJTVhYWCIsImFjY1R5cGUiOiJDVVJSRU5UIiwibGlua1JlZk51bWJlciI6IjAzOTQ4ODU2NjY4ODAwIiwibWFza2VkQWNjTnVtYmVyIjoiWFhYWFhYWFhYODAwMCJ9XSwiUHVycG9zZSI6eyJjb2RlIjoiMTAyIiwicmVmVXJpIjoiaHR0cHM6Ly9hcGkucmViaXQub3JnLmluL2FhL3B1cnBvc2UvMTAyLnhtbCIsInRleHQiOiJQZXJzb25hbCBGaW5hbmNlIE1hbmFnZW1lbnQiLCJDYXRlZ29yeSI6eyJ0eXBlIjoicHVycG9zZUNhdGVnb3J5VHlwZSJ9fSwiRklEYXRhUmFuZ2UiOnsiZnJvbSI6MTU3MDUxODU3NjQ2NSwidG8iOjE1ODYyNDMzNzg4NzZ9LCJEYXRhTGlmZSI6eyJ1bml0IjoiWUVBUiIsInZhbHVlIjoxfSwiRnJlcXVlbmN5Ijp7InVuaXQiOiJEQVkiLCJ2YWx1ZSI6MX0sIkRhdGFGaWx0ZXIiOlt7InR5cGUiOiJUUkFOU0FDVElPTkFNT1VOVCIsIm9wZXJhdG9yIjoiPiIsInZhbHVlIjoiMTAifV19.eWLuIHPW5KlCnTSrtG29zD3ibL14FN0Et45UgTPtPXuOhSXIPFF5K_vOf5JWdS2eHQvAYgD63Nb4U1vAnV_Iqq2J-7WgyAb68gjYkdG_oG5QqbrIs4MThR7GqFCSB_vd8G_vWqB08fNS9kjiAzLCtKqCw42Lu-_yCWlKin-INJMRTyXnorO0Y5prDwiK5SFLCkRLK2unFXY_aKEPbXXboR39CSbHmg6fVm4zxhC1fEMtjNUZcP33Gj3F6cW9k_jj94CBFyaqlEz_zvB97M_oTRcO-tP_TrqvZAUW8r3EpdAfTBTvdnnOroXm36OpavKKxGLT7m-M6eF2GUsHOc-kFA&quot;,
+        &quot;ConsentUse&quot;: {
+      &quot;logUri&quot;: &quot;consent_use_loguri&quot;,
+      &quot;count&quot;: 0,
+      &quot;lastUseDateTime&quot;: &quot;2020-04-07T07:09:38.877+0000&quot;
+        }
+    }
+</code></pre></div>
+
+<p>Response Expected: </p>
+<div class="codehilite"><pre><span></span><code><span class="mf">200</span><span class="w"> </span><span class="n">OK</span>
+</code></pre></div>
+
+<h3 id="heartbeat">Heartbeat</h3>
+<p>HTTP METHOD: <code>GET</code></p>
+<p>URL: <code>http://api.ink-aa.in/ConnectHub/V1/Heartbeat</code></p>
+<h2 id="request-headers_8">Request headers</h2>
+<p>Below <code>http</code> headers need to be set as part of each request</p>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th style="text-align: center;">Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>content-Type</code></td>
+<td style="text-align: center;"><code>application/json</code></td>
+</tr>
+<tr>
+<td><code>Accept</code></td>
+<td style="text-align: center;"><code>application/json</code></td>
+</tr>
+<tr>
+<td><code>aa_api_key</code></td>
+<td style="text-align: center;"><code>eyJraWQiOiJrZXlJZDEiLCJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwODAvb3BlbmlkLWNvbm5lY3Qtc2VydmVyLXdlYmFwcC8iLCJhdWQiOiJodHRwOi8vbG9jYWxob3N0OjkwOTAvQ29ubmVjdEh1Yi9WMS8iLCJleHAiOjE2MTMxMjM0NDAsImp0aSI6Ii11NmVNQXMxZGxpWGtPeWVYZGd3cmciLCJpYXQiOjE1ODE1ODc0NDAsIm5iZiI6MTU4MTU4NzM4MCwic3ViIjoibWFub2pAZmludnUuaW4ifQ.NlBDFmCh8SsX9T9eFZoiilfIkYObFpe57JQiSV-yc4Svt6AaHQFq3IT_0Z3I4880HixSvfcFCAUcP_meYguYk6Qp7YpTBMQ-S9j3ekcMnL-whDkR2dmChrgGI-ZaXtz-zlQXmfUNJiPKKJm8Ca68Bxi7lzvgF5YMxgz99m8Hj0ia1Ax3a468mo8JtvxelOrjYT-yVZDlH22Qo4INrdl3kIO_jDRB-AGQuq3095xjRciX-_zDK-a7_q_UyKRKjDnUjXkpiMzGfeilzfqMh-4PFfIXdQTF612QrSk7oZwF0XvqmjzQJYaGfPqdXtPcT3G7WDuS_YAdAQW5vIjAW96pXQ</code></td>
+</tr>
+</tbody>
+</table>
+<p>Request Body</p>
+<div class="codehilite"><pre><span></span><code>No Request Body expected
+</code></pre></div>
+
+<p>Response Expected: </p>
+<div class="codehilite"><pre><span></span><code>    {
+        &quot;ver&quot;: &quot;1.0&quot;,
+        &quot;timestamp&quot;: &quot;2019-01-23T04:08:25.132+0000&quot;,
+        &quot;Status&quot;: &quot;UP&quot;
+    }
+</code></pre></div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; Unacores AA Solutions Pvt Ltd.
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.footer"], "search": "../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+    
+  </body>
+</html>

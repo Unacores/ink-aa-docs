@@ -1,0 +1,18 @@
+/* Increase the logo size */
+.md-header__button.md-logo img, .md-header__button.md-logo svg{
+    width: auto; /* Adjust this value to your desired width */
+    height: 50px; /* Maintain the aspect ratio */
+}
+
+/* Completely hide the right-hand TOC */
+.md-sidebar--secondary {
+    display: none !important;
+}
+
+/* Expand the main content area to occupy the full width */
+.md-content {
+    max-width: 100% !important;
+    margin-right: auto !important;
+    padding-right: 20px !important;
+}
+

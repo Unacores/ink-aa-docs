@@ -1,0 +1,1110 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../ink_aa_register/">
+      
+      
+        <link rel="next" href="../ink_ui_integration/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.45">
+    
+    
+      
+        <title>TSP Integration with Ink AA - Developer Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.0253249f.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../css/custom.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#integrating-with-ink-aa-account-aggregator" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Developer Docs" class="md-header__button md-logo" aria-label="Developer Docs" data-md-component="logo">
+      
+  <img src="../images/ic_splash.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Developer Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              TSP Integration with Ink AA
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Developer Docs" class="md-nav__button md-logo" aria-label="Developer Docs" data-md-component="logo">
+      
+  <img src="../images/ic_splash.png" alt="logo">
+
+    </a>
+    Developer Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../get_started/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Get Started
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ink_aa_register/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Registering with Ink AA
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    TSP Integration with Ink AA
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    TSP Integration with Ink AA
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#pre-requisites-before-testing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pre-Requisites before testing
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ink_ui_integration/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    UI Integration with Ink AA
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ink_fiu_integration/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Integrating with Ink FIU
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../how_to/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    How-To
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../guidelines/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Guidelines
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#pre-requisites-before-testing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pre-Requisites before testing
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="integrating-with-ink-aa-account-aggregator">Integrating with Ink AA (Account Aggregator)</h1>
+<p>If you are building your own FIU module you would need to first build the FIU functionality and the APIs.</p>
+<p>Once you have built out the API and respective FIU functionality , you can start testing with Ink Account Aggregator APIs. </p>
+<p>Before that there are certain pre-requisites that need to be done for security and authentication when calling the APIs. </p>
+<h2 id="pre-requisites-before-testing">Pre-Requisites before testing</h2>
+<ol>
+<li>Gain a basic understanding of the AA Ecosystem – resources given in the INK AA Website.</li>
+<li>As an FIU, use the Sandbox resources available in our sandbox</li>
+</ol>
+<p>For new user registration in the Sandbox , refer the below link for UAT and Production environments</p>
+<h1 id="_1"></h1>
+<p><a href="https://portal.uatdev.ink-aa.com/">UAT Sandbox</a></p>
+<p><a href="https://sandbox.ink-aa.com/">Production Sandbox</a></p>
+<p>After filling the relevant fields , click on sign up button.</p>
+<p><img alt="Register" src="../images/Picture1.png" /></p>
+<p>Provide the OTP received on the email registered for verification</p>
+<p><img alt="Registration OTP" src="https://unacores.github.io/ink-aa-docs/images/Picture2.png" /></p>
+<p>A congratulation message is shown to the user after successful submission of the registration.</p>
+<p><img alt="Registeration Successful" src="https://unacores.github.io/ink-aa-docs/images/Picture3.png" /></p>
+<p>Admin Team will then review the request and approve the registration.Email will be sent on registered email ID will the account credentials.</p>
+<p>FIU can login using the account credentials by using the same link.User will be prompted to change the password during first login.</p>
+<p>Write to our business team at connect@ink-aa.com sharing basic details of your use case, and request for pricing and business agreement</p>
+<h2 id="ink-aa-endpoint">Ink AA Endpoint</h2>
+<p>UAT Entity ID 'UNACORES-AA-UAT'</p>
+<p>PROD Entity ID 'UCSAA_AA_PROD'</p>
+<p>The Ink AA api endpoint is <code>https://uat.ink-aa.com/api/V1</code></p>
+<h2 id="request-headers-to-be-set-for-every-api-request">Request headers (To be set for every API request)</h2>
+<p>Below <code>HTTP</code> headers need to be set as part of each request when calling our AA apis</p>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>content-Type</code></td>
+<td><code>application/json</code></td>
+<td>API request and response are in JSON format</td>
+</tr>
+<tr>
+<td><code>Accept</code></td>
+<td><code>application/json</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>client_api_key</code></td>
+<td>Sample <code>eyJraWQiOiJqYXlAZmludnUuaW4iLCJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJjb29raWVqYXIiLCJleHAiOjE1OTEyNjMwMDMsImp0aSI6IjRxeXFpWV9aZGJpTW1qQ2lqT0ZMckEiLCJpYXQiOjE1NTk3MjcwMDMsIm5iZiI6MTU1OTcyNzAwMywic3ViIjoiamF5QGZpbnZ1LmluIiwiZ3JvdXBzIjpbImFnZ3JlZ2F0b3IiXX0.Ctd9EUpn0CrfEG8b9ouBcG8ilVuPWzXkxZFOhuTCRdpiVzi6M05ABJ9THJ1QE4n__r74r8KHSxDgdeV1L-8mek68i9m5BYgqaka5VKoCLiN0B22Xvy2QFski1ZLQhm7Va2NioVvilGGWBDlpW_csuChA2yobml1jqomr8SGya6MFbDURRmJjdL6oRTysoCYxeFzU2_JCud2ljMvaWsjSlnrYXQWaWaoJBAhz3AWNXdzU0u6mhq1mvksRl3xXJDiAVkY0KvZXRNjsJDYQfVJjavh9n0fZelJIWMHznp9mLpxRfrr_qo6hiTkX2QtbbmKfhc0_BXsKNOdxEXJmieOPSA</code></td>
+<td>The AA token that was shared by us and shared with you. Reference to Step 3.</td>
+</tr>
+<tr>
+<td><code>x-jws-signature</code></td>
+<td>Sample <code>eyJhbGciOiJSUzI1NiIsImtpZCI6IjUzMzEwNzkyLTgwMDYtNGU3NC1iYmJlLWNiZGRlYjg5ZjMwYiIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..h1FWwXanmcWgxUtHwlNWtD5_sE3HLjqd2rjE_c1WiPBvOHKJ4hs5oYlRdT663r7z7FV3WqP7tErNCzOlWUpu7j9JXKu7t4ObkCwx4pEZVySFcrI_0dpPAB43JlHeADeBwRX145tx6UC4yk4mIOTBrjdh2Yf0RZ7wOoyKys44mNqf0WJIZ2gO7bcm-WfTDW_5Y-tAO3LfyU2cQSyi1Jnc5q8qODXb_TsAYJOvANq0QGlstjEFwytnFsgPtyELjnjHMWgeTuDerw45xdNhdtNkR8UUHgajG2CFQwjEgpeOvZXbj0EeqbIgszXHsTHEfzRM6ZMMMEGcO_aXRUV3A6zZJQ</code></td>
+<td>The detached signature of the body generated by your FIU module.  Reference to Step 2.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="ink-aa-api">Ink AA API</h2>
+<p>Below are the AA api in order to integrate with the Ink Account Aggregator ecosystem. These APIs confirm to the ReBIT API specifications.</p>
+<h3 id="consents">Consents</h3>
+<p>This API is intended for FIU/AA Client to request generation of digitally signed consent artefacts.</p>
+<p>HTTP METHOD: <code>POST</code></p>
+<p>Relative URL: <code>/Consent</code></p>
+<p>URL: <code>https://uat.ink-aa.com/API/V1/Consent</code></p>
+<p>Below <code>http</code> headers need to be set as part of each request</p>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>content-Type</code></td>
+<td><code>application/json</code></td>
+</tr>
+<tr>
+<td><code>Accept</code></td>
+<td><code>application/json</code></td>
+</tr>
+<tr>
+<td><code>fip_api_key</code></td>
+<td>Sample<code>eyJraWQiOiJqYXlAZmludnUuaW4iLCJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJjb29raWVqYXIiLCJleHAiOjE1OTEyNjMwMDMsImp0aSI6IjRxeXFpWV9aZGJpTW1qQ2lqT0ZMckEiLCJpYXQiOjE1NTk3MjcwMDMsIm5iZiI6MTU1OTcyNzAwMywic3ViIjoiamF5QGZpbnZ1LmluIiwiZ3JvdXBzIjpbImFnZ3JlZ2F0b3IiXX0.Ctd9EUpn0CrfEG8b9ouBcG8ilVuPWzXkxZFOhuTCRdpiVzi6M05ABJ9THJ1QE4n__r74r8KHSxDgdeV1L-8mek68i9m5BYgqaka5VKoCLiN0B22Xvy2QFski1ZLQhm7Va2NioVvilGGWBDlpW_csuChA2yobml1jqomr8SGya6MFbDURRmJjdL6oRTysoCYxeFzU2_JCud2ljMvaWsjSlnrYXQWaWaoJBAhz3AWNXdzU0u6mhq1mvksRl3xXJDiAVkY0KvZXRNjsJDYQfVJjavh9n0fZelJIWMHznp9mLpxRfrr_qo6hiTkX2QtbbmKfhc0_BXsKNOdxEXJmieOPSA</code></td>
+</tr>
+<tr>
+<td><code>x-jws-signature</code></td>
+<td>Sample<code>eyJhbGciOiJSUzI1NiIsImtpZCI6IjUzMzEwNzkyLTgwMDYtNGU3NC1iYmJlLWNiZGRlYjg5ZjMwYiIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..h1FWwXanmcWgxUtHwlNWtD5_sE3HLjqd2rjE_c1WiPBvOHKJ4hs5oYlRdT663r7z7FV3WqP7tErNCzOlWUpu7j9JXKu7t4ObkCwx4pEZVySFcrI_0dpPAB43JlHeADeBwRX145tx6UC4yk4mIOTBrjdh2Yf0RZ7wOoyKys44mNqf0WJIZ2gO7bcm-WfTDW_5Y-tAO3LfyU2cQSyi1Jnc5q8qODXb_TsAYJOvANq0QGlstjEFwytnFsgPtyELjnjHMWgeTuDerw45xdNhdtNkR8UUHgajG2CFQwjEgpeOvZXbj0EeqbIgszXHsTHEfzRM6ZMMMEGcO_aXRUV3A6zZJQ</code></td>
+</tr>
+</tbody>
+</table>
+<p>Sample Request Body</p>
+<div class="codehilite"><pre><span></span><code><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;ver&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1.1.3&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;timestamp&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2019-05-02T06:49:35.645Z&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;txnid&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;4a4adbbe-29ae-11e8-a8d7-0289437bf731&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;ConsentDetail&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="nt">&quot;consentStart&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2019-12-06T11:39:57.153Z&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;consentExpiry&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2020-12-06T11:39:57.153Z&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;consentMode&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;VIEW&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;fetchType&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;PERIODIC&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;consentTypes&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">            </span><span class="s2">&quot;TRANSACTIONS&quot;</span>
+<span class="w">          </span><span class="p">],</span>
+<span class="w">          </span><span class="nt">&quot;fiTypes&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">            </span><span class="s2">&quot;DEPOSIT&quot;</span>
+<span class="w">          </span><span class="p">],</span>
+<span class="w">          </span><span class="nt">&quot;DataConsumer&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;fiu@bajajfinance&quot;</span>
+<span class="w">          </span><span class="p">},</span>
+<span class="w">          </span><span class="nt">&quot;Customer&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;jay@ink-aa&quot;</span>
+<span class="w">          </span><span class="p">},</span>
+<span class="w">          </span><span class="nt">&quot;Purpose&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;101&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;refUri&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://api.rebit.org.in/aa/purpose/101.xml&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;text&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Wealth management service&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;Category&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">          </span><span class="p">},</span>
+<span class="w">          </span><span class="nt">&quot;FIDataRange&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;from&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2018-10-31T04:10:12.898&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;to&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2019-10-31T04:10:12.897&quot;</span>
+<span class="w">          </span><span class="p">},</span>
+<span class="w">          </span><span class="nt">&quot;DataLife&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;unit&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;MONTH&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span>
+<span class="w">          </span><span class="p">},</span>
+<span class="w">          </span><span class="nt">&quot;Frequency&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;unit&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;MONTH&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span>
+<span class="w">          </span><span class="p">},</span>
+<span class="w">          </span><span class="nt">&quot;DataFilter&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;TRANSACTIONAMOUNT&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;operator&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&gt;=&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">20000</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">          </span><span class="p">]</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">      </span><span class="p">}</span>
+</code></pre></div>
+
+<p>Response Expected</p>
+<div class="codehilite"><pre><span></span><code><span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;ver&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1.1.3&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;timestamp&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2020-04-09T07:24:33.592+0000&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;txnid&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;4a4adbbe-29ae-11e8-a8d7-0289437bf731&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;Customer&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;jay@ink-aa&quot;</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="nt">&quot;ConsentHandle&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2c75ad41-49e0-438c-bd7c-8af9db072065&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+</code></pre></div>
+
+<h3 id="status-of-consent-request">Status of Consent Request</h3>
+<p>This API is intended for checking the status of a previously submitted Consent Artefacts creation request</p>
+<p>HTTP METHOD: <code>GET</code></p>
+<p>RELATIVE URL: <code>/handle/{consentHandle}</code></p>
+<p>URL: <code>https://uat.ink-aa.com/API/V1/Consent/handle/{consentHandle}</code></p>
+<p>e.g. : https://uat.ink-aa.com/API/V1/Consent/handle/2c75ad41-49e0-438c-bd7c-8af9db072065</p>
+<p>Below <code>http</code> headers need to be set as part of each request</p>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th style="text-align: center;">Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>content-Type</code></td>
+<td style="text-align: center;"><code>application/json</code></td>
+</tr>
+<tr>
+<td><code>Accept</code></td>
+<td style="text-align: center;"><code>application/json</code></td>
+</tr>
+<tr>
+<td><code>fip_api_key</code></td>
+<td style="text-align: center;">Sample<code>eyJraWQiOiJqYXlAZmludnUuaW4iLCJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJjb29raWVqYXIiLCJleHAiOjE1OTEyNjMwMDMsImp0aSI6IjRxeXFpWV9aZGJpTW1qQ2lqT0ZMckEiLCJpYXQiOjE1NTk3MjcwMDMsIm5iZiI6MTU1OTcyNzAwMywic3ViIjoiamF5QGZpbnZ1LmluIiwiZ3JvdXBzIjpbImFnZ3JlZ2F0b3IiXX0.Ctd9EUpn0CrfEG8b9ouBcG8ilVuPWzXkxZFOhuTCRdpiVzi6M05ABJ9THJ1QE4n__r74r8KHSxDgdeV1L-8mek68i9m5BYgqaka5VKoCLiN0B22Xvy2QFski1ZLQhm7Va2NioVvilGGWBDlpW_csuChA2yobml1jqomr8SGya6MFbDURRmJjdL6oRTysoCYxeFzU2_JCud2ljMvaWsjSlnrYXQWaWaoJBAhz3AWNXdzU0u6mhq1mvksRl3xXJDiAVkY0KvZXRNjsJDYQfVJjavh9n0fZelJIWMHznp9mLpxRfrr_qo6hiTkX2QtbbmKfhc0_BXsKNOdxEXJmieOPSA</code></td>
+</tr>
+<tr>
+<td><code>x-jws-signature</code></td>
+<td style="text-align: center;">Sample <code>eyJhbGciOiJSUzI1NiIsImtpZCI6IjUzMzEwNzkyLTgwMDYtNGU3NC1iYmJlLWNiZGRlYjg5ZjMwYiIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..aJCoAxSCzq9A8AGf-7tzu6ve6FjBsJdDnc-JpocXqDIHp8tDIIvY-Xz7KboPlzDRfdaIJBLS6piejd_6WRi4ccyNt5OnT7kxdwokkiAdrIVPkQiXftChU-64Q1rXYA6Um12DT8Ic1iywJInuOXLUeMlF9gb7qkBXDqVBcXIhb9fpzuL3n31Pf0gFrMNfO2JtOGGZeOiFyiCuNS4acYnorupBeTFhFC65WHGsMrLWggzRRuzBPJlXv8AoXXDw7vJFUhoEwJpfQH5bCGA0hBiHrpK52r_O3tRHhyULIbf83aOhCpw0h4PJ9RvwVCqJ9xUc2sXAjY9HD1z1TOGa_7XWyQ</code></td>
+</tr>
+</tbody>
+</table>
+<p>Request Body</p>
+<p><code>No Request Body expected</code></p>
+<p>Response Expected: </p>
+<div class="codehilite"><pre><span></span><code><span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;ver&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1.1.3&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;timestamp&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2020-04-09T07:24:33.592+0000&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;txnid&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;4a4adbbe-29ae-11e8-a8d7-0289437bf731&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;ConsentHandle&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2c75ad41-49e0-438c-bd7c-8af9db072065&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;ConsentStatus&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;PENDING&quot;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+</code></pre></div>
+
+<h3 id="consentsid">Consents/{id}</h3>
+<p>This API is intended for fetching the information associated with the specific consent.</p>
+<p>HTTP METHOD: <code>GET</code></p>
+<p>RELATIVE URL: <code>/Consent/{id}</code></p>
+<p>URL: <code>https://uat.ink-aa.com/API/V1/Consent/{id}</code>
+e.g. : https://uat.ink-aa.com/API/V1/Consent/79072af5-c41f-4cae-ac59-e233b82ea750</p>
+<p>Below <code>http</code> headers need to be set as part of each request</p>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th style="text-align: center;">Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>content-Type</code></td>
+<td style="text-align: center;"><code>application/json</code></td>
+</tr>
+<tr>
+<td><code>Accept</code></td>
+<td style="text-align: center;"><code>application/json</code></td>
+</tr>
+<tr>
+<td><code>fip_api_key</code></td>
+<td style="text-align: center;">Sample <code>eyJraWQiOiJqYXlAZmludnUuaW4iLCJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJjb29raWVqYXIiLCJleHAiOjE1OTEyNjMwMDMsImp0aSI6IjRxeXFpWV9aZGJpTW1qQ2lqT0ZMckEiLCJpYXQiOjE1NTk3MjcwMDMsIm5iZiI6MTU1OTcyNzAwMywic3ViIjoiamF5QGZpbnZ1LmluIiwiZ3JvdXBzIjpbImFnZ3JlZ2F0b3IiXX0.Ctd9EUpn0CrfEG8b9ouBcG8ilVuPWzXkxZFOhuTCRdpiVzi6M05ABJ9THJ1QE4n__r74r8KHSxDgdeV1L-8mek68i9m5BYgqaka5VKoCLiN0B22Xvy2QFski1ZLQhm7Va2NioVvilGGWBDlpW_csuChA2yobml1jqomr8SGya6MFbDURRmJjdL6oRTysoCYxeFzU2_JCud2ljMvaWsjSlnrYXQWaWaoJBAhz3AWNXdzU0u6mhq1mvksRl3xXJDiAVkY0KvZXRNjsJDYQfVJjavh9n0fZelJIWMHznp9mLpxRfrr_qo6hiTkX2QtbbmKfhc0_BXsKNOdxEXJmieOPSA</code></td>
+</tr>
+<tr>
+<td><code>x-jws-signature</code></td>
+<td style="text-align: center;">Sample<code>eyJhbGciOiJSUzI1NiIsImtpZCI6IjUzMzEwNzkyLTgwMDYtNGU3NC1iYmJlLWNiZGRlYjg5ZjMwYiIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..uyaTRfeArHdcxkYsKsJKDmJ7ieSpuQEVULvLzniIgYPEvmhx4cOGKUfGmY48ObrkhJVWM5swwmmH6ythwRq5WI7JdtuexdV73iJZfZ6vQicWy_Wx8grfdGbsYoRACgxuTRcgZgYXSKJN0BahLk3Unhk5udPqYL-hOilygfYdfFox-2cjbSs9i5P2DOftOUOXwFL_8l4xPJz24jKqLrJtdVfi0ba9hSvACN3ULh9bl6HK7RwIHPyUBYNUsFY5UO-P0mY-ey6ia1R78_TzK8DReT3s8K1jOUgM-mZyikqjjRimVppxexT5JDhEDy5ja6pvHoa04PibQnLTyKirAtSGfg</code></td>
+</tr>
+</tbody>
+</table>
+<p>Request Body
+<code>No Request Body expected</code></p>
+<p>Response Expected: </p>
+<div class="codehilite"><pre><span></span><code><span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;ver&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1.1.3&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;txnid&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1f242d7e-63aa-47b4-be7f-a1b442fff02f&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;consentId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;79072af5-c41f-4cae-ac59-e233b82ea750&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ACTIVE&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;createTimestamp&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2020-04-09T07:47:17.170+0000&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;signedConsent&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;eyJhbGciOiJSUzI1NiIsImtpZCI6ImY2NzZiNjg4LTA3YTItNDUwYi1hYmI1LTU3ZmJiOThlY2FiZSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19.eyJjb25zZW50U3RhcnQiOjE1NzU2MzIzOTcxNTMsImNvbnNlbnRFeHBpcnkiOjE2MDcyNTQ3OTcxNTMsImNvbnNlbnRNb2RlIjoiVklFVyIsImZldGNoVHlwZSI6IlBFUklPRElDIiwiY29uc2VudFR5cGVzIjpbIlRSQU5TQUNUSU9OUyJdLCJmaVR5cGVzIjpbIkRFUE9TSVQiXSwiRGF0YUNvbnN1bWVyIjp7ImlkIjoiZml1QGJhamFqZmluYW5jZSIsInR5cGUiOiJGSVUifSwiRGF0YVByb3ZpZGVyIjp7ImlkIjoiY29va2llamFyLWFhQGZpbnZ1LmluIiwidHlwZSI6IkFBIn0sIkN1c3RvbWVyIjp7ImlkIjoiamF5QGZpbnZ1In0sIkFjY291bnRzIjpbeyJmaVR5cGUiOiJERVBPU0lUIiwiZmlwSWQiOiJCQVJCMEtJTVhYWCIsImFjY1R5cGUiOiJDVVJSRU5UIiwibGlua1JlZk51bWJlciI6IjAzOTQ4ODU2NjY4ODAwIiwibWFza2VkQWNjTnVtYmVyIjoiWFhYWFhYWFhYODAwMCJ9XSwiUHVycG9zZSI6eyJjb2RlIjoiMTAxIiwicmVmVXJpIjoiaHR0cHM6Ly9hcGkucmViaXQub3JnLmluL2FhL3B1cnBvc2UvMTAxLnhtbCIsInRleHQiOiJXZWFsdGggbWFuYWdlbWVudCBzZXJ2aWNlIiwiQ2F0ZWdvcnkiOnsidHlwZSI6InN0cmluZyJ9fSwiRklEYXRhUmFuZ2UiOnsiZnJvbSI6MTU0MDk1OTAxMjg5OCwidG8iOjE1NzI0OTUwMTI4OTd9LCJEYXRhTGlmZSI6eyJ1bml0IjoiTU9OVEgiLCJ2YWx1ZSI6NH0sIkZyZXF1ZW5jeSI6eyJ1bml0IjoiTU9OVEgiLCJ2YWx1ZSI6Mn0sIkRhdGFGaWx0ZXIiOlt7InR5cGUiOiJUUkFOU0FDVElPTkFNT1VOVCIsIm9wZXJhdG9yIjoiPj0iLCJ2YWx1ZSI6IjIwMDAwIn1dfQ.lTpCKEu7Q9fZpJK6okY-DvmKCqUI28WdhRPL8thSzftTAhObprL8SsJsaXDzTWZnFxUM7EFl7ALvHvxajO_QshGP76MS-8XvkoilV0jWYYSM34-BqWUNhHaTsJC2hAVCPiBk9aWVnIOVoJFgoRHxHLeXt2tphIxKFJ6h5AVLGJw2flEWf19yId-Ra_O21D3CqxbO3kdQa_E2mutqvz0RRWqrLyEgTBP6Lh-4O-g7iTXZ1w4i6tggWhe9M0i9pLqjN8Y6_TgxIWWLoMd3r_0QEb3dwY5rFKeKaHS5JL5EDdmnMBaqfj4WMN9y0mTb1LKFrc8UW2ligDyY3qBPXs021Q&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;ConsentUse&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;logUri&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;consent_use_loguri&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;count&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;lastUseDateTime&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2020-04-09T07:47:13.032+0000&quot;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+</code></pre></div>
+
+<h3 id="firequest">/FI/request</h3>
+<p>The FIU or the User submits the Consent IDs of the consents required for fetching financial information from the FIP(s).</p>
+<p>HTTP METHOD: <code>POST</code></p>
+<p>RELATIVE URL: <code>/FI/request</code></p>
+<p>URL: <code>https://uat.ink-aa.com/API/V1/FI/request</code></p>
+<p>Below <code>http</code> headers need to be set as part of each request</p>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th style="text-align: center;">Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>content-Type</code></td>
+<td style="text-align: center;"><code>application/json</code></td>
+</tr>
+<tr>
+<td><code>Accept</code></td>
+<td style="text-align: center;"><code>application/json</code></td>
+</tr>
+<tr>
+<td><code>fip_api_key</code></td>
+<td style="text-align: center;">Sample <code>eyJraWQiOiJqYXlAZmludnUuaW4iLCJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJjb29raWVqYXIiLCJleHAiOjE1OTEyNjMwMDMsImp0aSI6IjRxeXFpWV9aZGJpTW1qQ2lqT0ZMckEiLCJpYXQiOjE1NTk3MjcwMDMsIm5iZiI6MTU1OTcyNzAwMywic3ViIjoiamF5QGZpbnZ1LmluIiwiZ3JvdXBzIjpbImFnZ3JlZ2F0b3IiXX0.Ctd9EUpn0CrfEG8b9ouBcG8ilVuPWzXkxZFOhuTCRdpiVzi6M05ABJ9THJ1QE4n__r74r8KHSxDgdeV1L-8mek68i9m5BYgqaka5VKoCLiN0B22Xvy2QFski1ZLQhm7Va2NioVvilGGWBDlpW_csuChA2yobml1jqomr8SGya6MFbDURRmJjdL6oRTysoCYxeFzU2_JCud2ljMvaWsjSlnrYXQWaWaoJBAhz3AWNXdzU0u6mhq1mvksRl3xXJDiAVkY0KvZXRNjsJDYQfVJjavh9n0fZelJIWMHznp9mLpxRfrr_qo6hiTkX2QtbbmKfhc0_BXsKNOdxEXJmieOPSA</code></td>
+</tr>
+<tr>
+<td><code>x-jws-signature</code></td>
+<td style="text-align: center;">Sample <code>eyJhbGciOiJSUzI1NiIsImtpZCI6IjUzMzEwNzkyLTgwMDYtNGU3NC1iYmJlLWNiZGRlYjg5ZjMwYiIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..i_KCXG3hYR_Wq2aFo0f6mVOo2BCFuzi2DTDYPSDgg9VI9ydqq6ypu_xh2WM6yBmYW-mGdt1E6q9OcG-ACOIrRhFBVE2QdN0A0g3Py1GAjGt0IzwjUzdChq7R7z6IICOttDT4T-hTnAmOm188LmIdmOS7xq5RTo87w_hr79_HOAa-_umfRVhYGmhgr7IHy6yT_UqLcNg3yN1j3JdzXrivJT68BYqMVE1cUrNNbU0-yaF7WxVxb5Yak-Tkjr1cZSrRgwI4HNEZX8i51MXpBAjkcCbahdrnTk7xdEsvroDKfCuFi38JF2IC0zIWvHv19uWPJ4iAkTDMsOWj_P7fCu-p4w</code></td>
+</tr>
+</tbody>
+</table>
+<p>Request Body</p>
+<div class="codehilite"><pre><span></span><code><span class="w">      </span><span class="p">{</span>
+<span class="w">          </span><span class="nt">&quot;ver&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1.1.3&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;timestamp&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1586430349059</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;txnid&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0b538f95-38de-4ed6-be51-d55c2d8fe6f1&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;FIDataRange&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;from&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2018-10-31T04:10:12.898&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;to&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2019-10-31T04:10:12.897&quot;</span>
+<span class="w">          </span><span class="p">},</span>
+<span class="w">          </span><span class="nt">&quot;Consent&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;237f245e-20fd-4bb3-8d95-47855f1f2cb1&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;digitalSignature&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;HJMUEnmffI1-5ia_nahomS-fvJSP1ORDbBoPkbfB0tNMttcDVjfTHTZGUvibEI7W5B99PIEABN7oNFslAGr1B6aYfScYxlCmj1nVprhf9WqXDHT1iThKEnLsKcocM21AVxjlxjtgMHkNTIs2NXGf7U5cCs-FwDrDKwaZPF8PT1gtrV1coxmT6o7lwOla2VYoN02gaH55tdAhboZ0zxBoauTeKIJXrSJ0t_yJ8OGeYNRMlyqv2456doey5bGy91UOl20nXfrc3RPYTHvZ2yMFvdWlA4J05KXLxzVDqMwcUr91YL9An4ZIlXKukbBJJhOkAa_0vXRkySsTQ8E4NqHYiA&quot;</span>
+<span class="w">          </span><span class="p">},</span>
+<span class="w">          </span><span class="nt">&quot;KeyMaterial&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;cryptoAlg&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ECDH&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;curve&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Curve25519&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;params&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;params&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;DHPublicKey&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;expiry&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2020-06-01T15:25:50.505Z&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;Parameters&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;params&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;KeyValue&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;-----BEGIN PUBLIC KEY-----MIIBMTCB6gYHKoZIzj0CATCB3gIBATArBgcqhkjOPQEBAiB/////////////////////////////////////////7TBEBCAqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqYSRShRAQge0Je0Je0Je0Je0Je0Je0Je0Je0Je0Je0JgtenHcQyGQEQQQqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq0kWiCuGaG4oIa04B7dLHdI0UySPU1+bXxhsinpxaJ+ztPZAiAQAAAAAAAAAAAAAAAAAAAAFN753qL3nNZYEmMaXPXT7QIBCANCAARBy9oxpJ/dHJCBfJsXuf2HWhfREj/xkr4xK3Uoj4tOOUPnwkyEcXsVgc7uQW4hfHptkAyFfW4/ltmOwYiEPnZg-----END PUBLIC KEY-----&quot;</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="nt">&quot;Nonce&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;MqmdF9qAfaCt9i9qewn3AmdWOPIkC7cjUDeLDdNPDEM=&quot;</span>
+<span class="w">          </span><span class="p">}</span>
+<span class="w">      </span><span class="p">}</span>
+</code></pre></div>
+
+<p>Response Expected: </p>
+<div class="codehilite"><pre><span></span><code><span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;ver&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1.1.3&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;timestamp&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2020-04-14T06:04:34.727+0000&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;txnid&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0b538f95-38de-4ed6-be51-d55c2d8fe6f1&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;consentId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;237f245e-20fd-4bb3-8d95-47855f1f2cb1&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;sessionId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;e4e3fb59-d682-48c7-80e2-770967ba2477&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+</code></pre></div>
+
+<h3 id="fifetchsessionid">/FI/fetch/{sessionId}</h3>
+<p>Once FIU receives the notification <Data-Ready> from AA, using digitally signed consent request received from AA, this API can be used to fetch the financial information from the AA.</p>
+<p>HTTP METHOD: <code>GET</code></p>
+<p>RELATIVE URL: <code>/FI/fetch/{sessionId}</code></p>
+<p>URL: <code>https://uat.ink-aa.com/API/V1/FI/fetch/{sessionId}</code>
+e.g. : https://uat.ink-aa.com/API/V1/FI/fetch/e4e3fb59-d682-48c7-80e2-770967ba2477</p>
+<p>Below <code>http</code> headers need to be set as part of each request</p>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th style="text-align: center;">Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>content-Type</code></td>
+<td style="text-align: center;"><code>application/json</code></td>
+</tr>
+<tr>
+<td><code>Accept</code></td>
+<td style="text-align: center;"><code>application/json</code></td>
+</tr>
+<tr>
+<td><code>fip_api_key</code></td>
+<td style="text-align: center;">Sample <code>eyJraWQiOiJqYXlAZmludnUuaW4iLCJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJjb29raWVqYXIiLCJleHAiOjE1OTEyNjMwMDMsImp0aSI6IjRxeXFpWV9aZGJpTW1qQ2lqT0ZMckEiLCJpYXQiOjE1NTk3MjcwMDMsIm5iZiI6MTU1OTcyNzAwMywic3ViIjoiamF5QGZpbnZ1LmluIiwiZ3JvdXBzIjpbImFnZ3JlZ2F0b3IiXX0.Ctd9EUpn0CrfEG8b9ouBcG8ilVuPWzXkxZFOhuTCRdpiVzi6M05ABJ9THJ1QE4n__r74r8KHSxDgdeV1L-8mek68i9m5BYgqaka5VKoCLiN0B22Xvy2QFski1ZLQhm7Va2NioVvilGGWBDlpW_csuChA2yobml1jqomr8SGya6MFbDURRmJjdL6oRTysoCYxeFzU2_JCud2ljMvaWsjSlnrYXQWaWaoJBAhz3AWNXdzU0u6mhq1mvksRl3xXJDiAVkY0KvZXRNjsJDYQfVJjavh9n0fZelJIWMHznp9mLpxRfrr_qo6hiTkX2QtbbmKfhc0_BXsKNOdxEXJmieOPSA</code></td>
+</tr>
+<tr>
+<td><code>x-jws-signature</code></td>
+<td style="text-align: center;">sample <code>eyJhbGciOiJSUzI1NiIsImtpZCI6IjUzMzEwNzkyLTgwMDYtNGU3NC1iYmJlLWNiZGRlYjg5ZjMwYiIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..XYmRm_uBnQmQSgKtBjBz55hIcCEiJxhDLYQZDP0DKwKYzkVofd4Ag_oUljtSY-Y8cxS78C7_pEsRcydzOYNlkjsBgVxlJQaI89rIQyz1vzQRFYffwjM5IKSwSjNgNiZpU3pr8IgOHSPDOurg7Th-Z62LNp82JMsxAnBp0QiSWgcbLcoxz1n3F7CpTQsNtwxlMa2w7M5bvbKuA27uIthNsL3agEGyT6a6mKds22HcjkPrJDuKNtdcOrH7Fm_WcYunpGMFLoOFmbDXVIkHfIhVixQqH8s0GYSKPAHYxnUj-7Er3WY3uGiA1bFzyiiqaxdOt4YhOLmr_9C5lQ9Ir6t1fQ</code></td>
+</tr>
+</tbody>
+</table>
+<p>Response Expected: </p>
+<div class="codehilite"><pre><span></span><code><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;ver&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1.1.3&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;timestamp&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2020-04-09T11:05:49.059+0000&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;txnid&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0b538f95-38de-4ed6-be51-d55c2d8fe6f1&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;FI&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">      </span><span class="p">{</span>
+<span class="w">          </span><span class="nt">&quot;fipID&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;BARB0KIMXXX&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;data&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;linkRefNumber&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;03948856668800&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;maskedAccNumber&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;XXXXXXXXX8000&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;encryptedFI&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;hGg1saPYkyfv1rLzCaWC97JIv6xHx4rOYdu3wmKts0Gi4/5QuI5NE8yVPmBRLmpPwEIVEE0TUrWZHpZ09zpgwyYUggw/HKZqkL2fRGGYPgylVRymNWp5CMwm7qPY33ruXkvDhEIYHCl+XkuCfzpWNqs97mbZesraF259ylMmCtim/Lx2cVLRM4s1FN4HgM254q4m9lKF0kfcIG+gGai0SM8HGycGEOiCzZjPH52PlT3g289lL6aOUFnMjn7EUtYL02FeTBmvgwlmkoP/9Cnp1M2V9JJOs1M9ZWyT9J6TryvNVUnTSO5zCE08pk+yxpmNkXflikskMUYAzXezvSSgcTomOlNZTS7ci4MpkGfA8IsdEWt2ZXm2zX5Ea8s8yA/7oS4QT0o65NegA1Z4ArPGsPf0wTRrY+7+dJ0HdUgGdvi/gfxuOJxvWLEZmFCvJaciQUEcBAH71q7E6HJWnuEqwcqovDTa2xkhjAfmyTtH6nUXyXJDZhLQfBHOflRz+SEpA7Um1vIJ+52XiL2BiB4PglP3PpOeQXSb6toKgupwewM9vClI3hOoLWKyo+wqpckbS7fd6C0nGkGmU7d1Ip6+2NM3uHR9Y5BdbMpuSYYRmXQceGsz8can/8iAgQPj0QBg2ndJXNEy9F0ZOcnNeEC+J73/x1omkIwqOLv1su537y1e4vxGEP6KgzlmYDgz+hWPIdlf8O+D7IO4eViZ9Q3dCUQaodyT5tUcldTOcwyiaOjNsw7sSgdEDZgZwLTUL4q3p+YU5g63nClUqstnh48X0J6RcUIHh0bkj5F1OE6ey9EARhxQM28IR1yhVZi39VBfHa17wkF3M0xoHyqCa7onu3fMEoaOLKmuyLfyBjX1/ulXUJMe5+W0HYvblge3TE787g8x3cdqudvIxUUxrQG+zaPlJh8ElqEfH6Zd63a4zADyD107iI8kuP4oSNu8XG0uOVCcihXw0WXec5akTQabhpwrT0COZfmaQpO4anRDyaMHiqFLGF1PhFNEJ931RaBZGgsXmOTSYIvpx/pvWBZSz2BnLN0QnxEs7DbLogmkcylDWN3nML6huR7tf/Yj1qUNxLpFaxx54Ir62VaPTCGTB26KW82sWBMY1DI4IQ/YjyixMdqQUXU4bf0J1JOpxXrp0Q4flb63/Xpid52JvXcp73Y9DDJNQZJDoUmACsuIDnaKtiAj91RMARD1vN0TTdg5xODsDc5IYPaDKRrCYD7hIBWKVbgkyLVCwsdyi3bhoM5EgxCQdxejZbq6juqmZ5THHx88i2gSLGVYX46v+whUsWJOGJiPA7ZOHJjGnBmZ6TpfGlxjWMYgSXAz/Y0CF+/wEw2dWh02txLOrBRJYmVzbVOhkMRcQ/RR8thh59NvYR6LGWbBWrOhtaECRywDG/+5FuFtBnDGk1SpLs49X9KwRIH7ymSy/Ibr/Ky4o/vuULV+SAOz28VqyHzin1VqjbfZKaLLRfJGPQRg4Yk+9yvNLETdIXJr4elPsn976poBrarcaY3qx25T2SBe8n6wMwVdlZNHaBNhADSeCD36bQe337mseVzFAHfVVXjhfcjkPrOYR7E4w3UkkxN3OPUU0nLAzNbmarxf2HbkAErjsjq9YRQjS8GsWt6l32QyUfxIjm+B+FLsO4HajXBM51at9oH/Q6OVUhhFa4QX943u/jgjYlCFLf3gBlAk1/cDQmiikKW5EKXKY8lBPZnzlnxs9CvtUZf7qe++OKRJADeAHDm9T3vBl6GrF34GkSbFKqzG0Gl3dHpgAD/1KaSgrq74aSA1n2pxt2Mv0au88pJcwEIH/EPYrPQ1q9O9weexK4S+hDiCB+VU7M4/G2wtbv3NiASSpYRa/R4/LJ3pe5YMB5oa9QSwuZDxKHw/yFtM60PmNGJNyz0yRxONFM6K/WA3Eb1J4EYe6qpxejM5iGqIEKCS1Nm4q+y1/FwOKrLCwBr8z/kXu12Zxc4XP4p35ysblPOlIk0f/pneybdpHzFT1WBZJLco8qu8fLPcddxjAgyyyzOyYOKUfDBxMRSTIAZ/az5o/NVNtQPX+VqwDxkYQYNw1XqOD92enwVdZYJ1Sn1pr6SVSD68Gt/6myUGBHkz6hz9EgHBmzKqf6RJk4qFChvGNv7KeLTkCHC8sPCJimZ8oz94OKtny+hO1i/65fdK7QcQ+oO/fSeZCjPzYGFOIIR2MfnpqfJmgSOoBTTTixh6bl3QIFHeRl6vwkbaZOlN5yESQuuxH8R/kPssvESfJ6R2wd7h02kow0b2MjkfzD9gOeF/yFDBF+KeWvivaeX0tMzdT0GwPFnooa/NVwvekDoaVT6gfG4rR85zdm3PRoErgfzfSOAjTyLqgZ2bjih4BvdVjsj+poWNLSEznOh/04H8dBsHU4bBUk3DiZOcHlTnLXvjPyXCxEMh25z7G5i+FLBt1JeqyWKVBC9P0exU92veRyboW+uZMITeINe+inRZxHdcXE6VOZlctwFmPQvl+ZzBlmnYUmHy2h1d+JtCtYmH6AhxFEKdSIkT0z/ZpJ08sZt4RlfVRzkk2yJ6EJ4whGHyOdDhUSQDAfS3w5ATdfDj0LUrXgyKAPU4aRFx0s4DTyct68Ra60Rk+E6Wzvbt&quot;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">          </span><span class="p">],</span>
+<span class="w">          </span><span class="nt">&quot;KeyMaterial&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;cryptoAlg&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;curve&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ECDH&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;params&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Curve25519&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;DHPublicKey&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;expiry&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2020-04-15T06:04:34.812+0000&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;Parameters&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;KeyValue&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;-----BEGIN PUBLIC KEY-----MIIBMTCB6gYHKoZIzj0CATCB3gIBATArBgcqhkjOPQEBAiB/////////////////////////////////////////7TBEBCAqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqYSRShRAQge0Je0Je0Je0Je0Je0Je0Je0Je0Je0Je0JgtenHcQyGQEQQQqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq0kWiCuGaG4oIa04B7dLHdI0UySPU1+bXxhsinpxaJ+ztPZAiAQAAAAAAAAAAAAAAAAAAAAFN753qL3nNZYEmMaXPXT7QIBCANCAARlEuyKQ/gHSBR0K52DzAx4E9qztndcnebrr5qKE82w+HIyriwjonA6p6E8PLXGn7U+GLchjuLSAaZRg4R8taDV-----END PUBLIC KEY-----&quot;</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="nt">&quot;Nonce&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;vnIxIOs19HZl6Ri78TiRWNC43Eve2Bodte53RBP43kY=&quot;</span>
+<span class="w">          </span><span class="p">}</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">        </span><span class="p">]</span>
+<span class="w">    </span><span class="p">}</span>
+</code></pre></div>
+
+<h3 id="consent-notification">Consent Notification</h3>
+<p>API handles the notifications corresponding to the events generated during consent flow and data flow.</p>
+<p>HTTP METHOD: <code>POST</code></p>
+<p>RELATIVE URL: <code>/Consent/Notification</code></p>
+<p>URL: <code>https://uat.ink-aa.com/API/V1/Consent/Notification</code></p>
+<p>Below <code>http</code> headers need to be set as part of each request</p>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th style="text-align: center;">Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>content-Type</code></td>
+<td style="text-align: center;"><code>application/json</code></td>
+</tr>
+<tr>
+<td><code>Accept</code></td>
+<td style="text-align: center;"><code>application/json</code></td>
+</tr>
+<tr>
+<td><code>fip_api_key</code></td>
+<td style="text-align: center;">Sample <code>eyJraWQiOiJqYXlAZmludnUuaW4iLCJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJjb29raWVqYXIiLCJleHAiOjE1OTEyNjMwMDMsImp0aSI6IjRxeXFpWV9aZGJpTW1qQ2lqT0ZMckEiLCJpYXQiOjE1NTk3MjcwMDMsIm5iZiI6MTU1OTcyNzAwMywic3ViIjoiamF5QGZpbnZ1LmluIiwiZ3JvdXBzIjpbImFnZ3JlZ2F0b3IiXX0.Ctd9EUpn0CrfEG8b9ouBcG8ilVuPWzXkxZFOhuTCRdpiVzi6M05ABJ9THJ1QE4n__r74r8KHSxDgdeV1L-8mek68i9m5BYgqaka5VKoCLiN0B22Xvy2QFski1ZLQhm7Va2NioVvilGGWBDlpW_csuChA2yobml1jqomr8SGya6MFbDURRmJjdL6oRTysoCYxeFzU2_JCud2ljMvaWsjSlnrYXQWaWaoJBAhz3AWNXdzU0u6mhq1mvksRl3xXJDiAVkY0KvZXRNjsJDYQfVJjavh9n0fZelJIWMHznp9mLpxRfrr_qo6hiTkX2QtbbmKfhc0_BXsKNOdxEXJmieOPSA</code></td>
+</tr>
+<tr>
+<td><code>x-jws-signature</code></td>
+<td style="text-align: center;">Sample <code>eyJhbGciOiJSUzI1NiIsImtpZCI6IjUzMzEwNzkyLTgwMDYtNGU3NC1iYmJlLWNiZGRlYjg5ZjMwYiIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..sYAhIsKVs5tXX1Og4PeRzuVvmMesfiudUNPE7UoNLPO6KJLUChDyvKF_l5LbFNBspMwLYVrS01m9k6a6XdxcuAcIhBNEb4yoZcVKS1wLgMl8OXc-PjbqJeC-op3ovQk-KLRF9HlIl7_s3ADGEW4KRK8J10_HTIMgt_9OoL5OZkCq0l1dNhjBoR0Z-zM8RRqfOfKW4gFys51iU4fGSpA9p9EdoBlImU8FHpldPBwQsJumvuK06DJEWFehiauclkC4auuJvlm-3iWb9f1aPO60oT7BFUJRIUP4ezyjnAKqm_Eh-Vum5uPfAfHLVBDgVG04yYixgGuZoLu1kFdexa8bLA</code></td>
+</tr>
+</tbody>
+</table>
+<p>Request Body</p>
+<div class="codehilite"><pre><span></span><code><span class="w">      </span><span class="p">{</span>
+<span class="w">          </span><span class="nt">&quot;ver&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1.1.3&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;timestamp&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2018-12-06T11:39:57.153Z&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;txnid&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0b811819-9044-4856-b0ee-8c88035f8858&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;Notifier&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;FIP&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;BARB0KIMXXX&quot;</span>
+<span class="w">          </span><span class="p">},</span>
+<span class="w">          </span><span class="nt">&quot;AccountLinkStatusNotification&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;maskedAccNumber&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;XXXXXXX5555&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;customerAddress&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;jay29@ink-aa.in&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;linkRefNumber&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;fe78c883-e96a-44d2-b767-b818f64ed8a0&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;linkStatus&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;LINKED&quot;</span>
+<span class="w">          </span><span class="p">}</span>
+<span class="w">      </span><span class="p">}</span>
+</code></pre></div>
+
+<p>Response Expected: 
+<code>200 OK</code></p>
+<h3 id="fi-notification">FI Notification</h3>
+<p>API handles the notifications corresponding to the events generated during consent flow and data flow.</p>
+<p>HTTP METHOD: <code>POST</code></p>
+<p>RELATIVE URL: <code>/FI/Notification</code></p>
+<p>URL: <code>https://uat.ink-aa.com/API/V1/FI/Notification</code></p>
+<p>Below <code>http</code> headers need to be set as part of each request</p>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th style="text-align: center;">Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>content-Type</code></td>
+<td style="text-align: center;"><code>application/json</code></td>
+</tr>
+<tr>
+<td><code>Accept</code></td>
+<td style="text-align: center;"><code>application/json</code></td>
+</tr>
+<tr>
+<td><code>fip_api_key</code></td>
+<td style="text-align: center;">Sample <code>eyJraWQiOiJqYXlAZmludnUuaW4iLCJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJjb29raWVqYXIiLCJleHAiOjE1OTEyNjMwMDMsImp0aSI6IjRxeXFpWV9aZGJpTW1qQ2lqT0ZMckEiLCJpYXQiOjE1NTk3MjcwMDMsIm5iZiI6MTU1OTcyNzAwMywic3ViIjoiamF5QGZpbnZ1LmluIiwiZ3JvdXBzIjpbImFnZ3JlZ2F0b3IiXX0.Ctd9EUpn0CrfEG8b9ouBcG8ilVuPWzXkxZFOhuTCRdpiVzi6M05ABJ9THJ1QE4n__r74r8KHSxDgdeV1L-8mek68i9m5BYgqaka5VKoCLiN0B22Xvy2QFski1ZLQhm7Va2NioVvilGGWBDlpW_csuChA2yobml1jqomr8SGya6MFbDURRmJjdL6oRTysoCYxeFzU2_JCud2ljMvaWsjSlnrYXQWaWaoJBAhz3AWNXdzU0u6mhq1mvksRl3xXJDiAVkY0KvZXRNjsJDYQfVJjavh9n0fZelJIWMHznp9mLpxRfrr_qo6hiTkX2QtbbmKfhc0_BXsKNOdxEXJmieOPSA</code></td>
+</tr>
+<tr>
+<td><code>x-jws-signature</code></td>
+<td style="text-align: center;">Sample<code>eyJhbGciOiJSUzI1NiIsImtpZCI6IjUzMzEwNzkyLTgwMDYtNGU3NC1iYmJlLWNiZGRlYjg5ZjMwYiIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..EibCG6y9f30eMEz4upmFw1a99mDnRZdz0MK5rNSuLreqDry8ug1lYvIHk7YfbzCQi5PnpLCtyyxthsFTmPnZvSDFNfmbprStPKbzcFyEDuwJT6xgHWutn_lJ-fGgDXjCQNRfJLNhrRcQkwbqgiNWnO5MzcSCj2fdgkxR2AQiB6Q1jmX5LFscxTJV5v7-QZ4MnTN3lEOUJPcx96RIthjsLGQI_xG3iYZf5XAhQTtcv64Ek5Ffv731Kd8xHwiRlL-6I9E7VOSgOSH_r0-ZC94xgMswb8EE-nKw5DkLHNlmesffzRYHOqeA4nNSWdSYoRGBuEbvWLx9VusXrw4AT2OoVw</code></td>
+</tr>
+</tbody>
+</table>
+<p>Request Body</p>
+<div class="codehilite"><pre><span></span><code><span class="w">      </span><span class="p">{</span>
+<span class="w">          </span><span class="nt">&quot;ver&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1.1.3&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;timestamp&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2020-04-14T05:59:12.196+0000&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;txnid&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;800b4213-4da4-44ac-a195-3ef81817da45&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;Notifier&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;FIP&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;BARB0KIMXXX&quot;</span>
+<span class="w">          </span><span class="p">},</span>
+<span class="w">          </span><span class="nt">&quot;FIStatusNotification&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;sessionId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ec9e9e39-2879-4305-8678-11c12965af63&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;sessionStatus&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;COMPLETED&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;FIStatusResponse&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">          </span><span class="nt">&quot;fipID&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;BARB0KIMXXX&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;Accounts&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">              </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;linkRefNumber&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;03948856668800&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;FIStatus&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;READY&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ACTIVE&quot;</span>
+<span class="w">              </span><span class="p">}</span>
+<span class="w">          </span><span class="p">]</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">]</span>
+<span class="w">          </span><span class="p">}</span>
+<span class="w">      </span><span class="p">}</span>
+</code></pre></div>
+
+<p>Response Expected: 
+<code>200 OK</code></p>
+<h3 id="account-link-notification">Account Link Notification</h3>
+<p>API handles the notifications corresponding to the events generated during consent flow and data flow.</p>
+<p>HTTP METHOD: <code>POST</code></p>
+<p>RELATIVE URL: <code>/Account/link/Notification</code></p>
+<p>URL: <code>https://uat.ink-aa.com/API/V1/Account/link/Notification</code></p>
+<p>Below <code>http</code> headers need to be set as part of each request</p>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th style="text-align: center;">Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>content-Type</code></td>
+<td style="text-align: center;"><code>application/json</code></td>
+</tr>
+<tr>
+<td><code>Accept</code></td>
+<td style="text-align: center;"><code>application/json</code></td>
+</tr>
+<tr>
+<td><code>fip_api_key</code></td>
+<td style="text-align: center;">Sample<code>eyJraWQiOiJqYXlAZmludnUuaW4iLCJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJjb29raWVqYXIiLCJleHAiOjE1OTEyNjMwMDMsImp0aSI6IjRxeXFpWV9aZGJpTW1qQ2lqT0ZMckEiLCJpYXQiOjE1NTk3MjcwMDMsIm5iZiI6MTU1OTcyNzAwMywic3ViIjoiamF5QGZpbnZ1LmluIiwiZ3JvdXBzIjpbImFnZ3JlZ2F0b3IiXX0.Ctd9EUpn0CrfEG8b9ouBcG8ilVuPWzXkxZFOhuTCRdpiVzi6M05ABJ9THJ1QE4n__r74r8KHSxDgdeV1L-8mek68i9m5BYgqaka5VKoCLiN0B22Xvy2QFski1ZLQhm7Va2NioVvilGGWBDlpW_csuChA2yobml1jqomr8SGya6MFbDURRmJjdL6oRTysoCYxeFzU2_JCud2ljMvaWsjSlnrYXQWaWaoJBAhz3AWNXdzU0u6mhq1mvksRl3xXJDiAVkY0KvZXRNjsJDYQfVJjavh9n0fZelJIWMHznp9mLpxRfrr_qo6hiTkX2QtbbmKfhc0_BXsKNOdxEXJmieOPSA</code></td>
+</tr>
+<tr>
+<td><code>x-jws-signature</code></td>
+<td style="text-align: center;">Sample<code>eyJhbGciOiJSUzI1NiIsImtpZCI6IjUzMzEwNzkyLTgwMDYtNGU3NC1iYmJlLWNiZGRlYjg5ZjMwYiIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..sYAhIsKVs5tXX1Og4PeRzuVvmMesfiudUNPE7UoNLPO6KJLUChDyvKF_l5LbFNBspMwLYVrS01m9k6a6XdxcuAcIhBNEb4yoZcVKS1wLgMl8OXc-PjbqJeC-op3ovQk-KLRF9HlIl7_s3ADGEW4KRK8J10_HTIMgt_9OoL5OZkCq0l1dNhjBoR0Z-zM8RRqfOfKW4gFys51iU4fGSpA9p9EdoBlImU8FHpldPBwQsJumvuK06DJEWFehiauclkC4auuJvlm-3iWb9f1aPO60oT7BFUJRIUP4ezyjnAKqm_Eh-Vum5uPfAfHLVBDgVG04yYixgGuZoLu1kFdexa8bLA</code></td>
+</tr>
+</tbody>
+</table>
+<p>Sample Request Body</p>
+<div class="codehilite"><pre><span></span><code><span class="w">      </span><span class="p">{</span>
+<span class="w">          </span><span class="nt">&quot;ver&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1.1.3&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;timestamp&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2018-12-06T11:39:57.153Z&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;txnid&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0b811819-9044-4856-b0ee-8c88035f8858&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;Notifier&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;FIP&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;BARB0KIMXXX&quot;</span>
+<span class="w">          </span><span class="p">},</span>
+<span class="w">          </span><span class="nt">&quot;AccountLinkStatusNotification&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;maskedAccNumber&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;XXXXXXX5555&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;customerAddress&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;jay29@ink-aa.in&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;linkRefNumber&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;fe78c883-e96a-44d2-b767-b818f64ed8a0&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;linkStatus&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;LINKED&quot;</span>
+<span class="w">          </span><span class="p">}</span>
+<span class="w">      </span><span class="p">}</span>
+</code></pre></div>
+
+<p>Response Expected: 
+<code>200 OK</code></p>
+<h3 id="heartbeat">Heartbeat</h3>
+<p>This API is used by FIUs to check availability of AAs.</p>
+<p>```</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../ink_aa_register/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Registering with Ink AA">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Registering with Ink AA
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../ink_ui_integration/" class="md-footer__link md-footer__link--next" aria-label="Next: UI Integration with Ink AA">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                UI Integration with Ink AA
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; Unacores AA Solutions Pvt Ltd.
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.footer"], "search": "../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+    
+  </body>
+</html>
