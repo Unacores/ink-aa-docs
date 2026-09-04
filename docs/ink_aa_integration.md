@@ -19,7 +19,7 @@ For new user registration in the Sandbox , refer the below link for UAT and Prod
 
 After filling the relevant fields , click on sign up button.
 
-![Register](../images/Picture1.png)
+![Register](images/Picture1.png)
 
 Provide the OTP received on the email registered for verification
 
