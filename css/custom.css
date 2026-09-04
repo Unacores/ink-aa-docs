@@ -1,0 +1,288 @@
+/* =========================================================
+   Ink AA Developer Docs — modern theme overrides
+   ========================================================= */
+
+:root,
+[data-md-color-scheme="default"] {
+  --ink-brand: #3f51e8;
+  --ink-brand-dark: #2c3aad;
+  --ink-accent: #16b8a6;
+  --ink-bg-soft: #f6f7fb;
+  --ink-border: #e6e8f0;
+  --ink-code-bg: #f2f3f9;
+
+  --md-primary-fg-color: var(--ink-brand);
+  --md-primary-fg-color--light: #5b68ee;
+  --md-primary-fg-color--dark: var(--ink-brand-dark);
+  --md-accent-fg-color: var(--ink-accent);
+  --md-typeset-a-color: var(--ink-brand);
+}
+
+[data-md-color-scheme="slate"] {
+  --ink-brand: #7c86f6;
+  --ink-accent: #2dd4bf;
+  --ink-bg-soft: #12131c;
+  --ink-border: #2a2c3d;
+  --ink-code-bg: #1a1c29;
+  --md-primary-fg-color: #1b1d2e;
+  --md-accent-fg-color: var(--ink-accent);
+  --md-typeset-a-color: var(--ink-accent);
+  --md-default-bg-color: #0e0f17;
+}
+
+/* ---------- Global typography ---------- */
+.md-typeset {
+  font-size: 0.72rem;
+  line-height: 1.7;
+}
+
+.md-typeset h1 {
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: 1.2em;
+}
+
+.md-typeset h2 {
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  padding-top: 0.4em;
+  border-top: 1px solid var(--ink-border);
+  margin-top: 2.2em;
+}
+
+.md-typeset h2:first-child {
+  border-top: none;
+  margin-top: 0;
+}
+
+.md-typeset h3 {
+  font-weight: 600;
+}
+
+/* Remove the old "---" horizontal-rule dividers' heaviness now that
+   headings carry their own separation */
+.md-typeset hr {
+  border-color: var(--ink-border);
+  margin: 1.6em 0;
+  opacity: 0.7;
+}
+
+/* ---------- Header ---------- */
+.md-header {
+  box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.06), 0 2px 8px rgba(15, 18, 40, 0.06);
+}
+
+.md-header__button.md-logo img,
+.md-header__button.md-logo svg {
+  width: auto;
+  height: 34px;
+}
+
+.md-header__title {
+  font-weight: 600;
+}
+
+.md-tabs {
+  background-color: var(--md-primary-fg-color--dark);
+}
+
+/* ---------- Sidebar / navigation ---------- */
+.md-nav__title {
+  font-weight: 700;
+}
+
+.md-nav__link--active,
+.md-nav__link:focus,
+.md-nav__link:hover {
+  color: var(--ink-brand);
+}
+
+[data-md-color-scheme="slate"] .md-nav__link--active,
+[data-md-color-scheme="slate"] .md-nav__link:hover {
+  color: var(--ink-accent);
+}
+
+.md-nav__item .md-nav__link--active {
+  font-weight: 600;
+}
+
+/* Bring back a comfortable reading column now that the secondary
+   TOC is available again, but keep it roomy */
+.md-content {
+  max-width: 100%;
+}
+
+.md-grid {
+  max-width: 1360px;
+}
+
+/* ---------- Code blocks ---------- */
+.md-typeset code {
+  background-color: var(--ink-code-bg);
+  border-radius: 4px;
+  font-size: 0.85em;
+}
+
+.md-typeset pre {
+  border-radius: 10px;
+  box-shadow: 0 1px 2px rgba(15, 18, 40, 0.06);
+}
+
+.md-typeset pre > code {
+  background-color: transparent;
+}
+
+.highlight {
+  border-radius: 10px;
+}
+
+/* ---------- Tables ---------- */
+.md-typeset table:not([class]) {
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid var(--ink-border);
+  box-shadow: none;
+}
+
+.md-typeset table:not([class]) th {
+  background-color: var(--ink-bg-soft);
+  font-weight: 600;
+}
+
+.md-typeset table:not([class]) tr:hover {
+  background-color: var(--ink-bg-soft);
+}
+
+/* ---------- Admonitions ---------- */
+.md-typeset .admonition,
+.md-typeset details {
+  border-radius: 10px;
+  border-width: 1px;
+  box-shadow: 0 1px 3px rgba(15, 18, 40, 0.05);
+}
+
+.md-typeset .admonition-title,
+.md-typeset summary {
+  font-weight: 600;
+}
+
+/* ---------- Inline API-key / header badges ---------- */
+.md-typeset code {
+  word-break: break-word;
+}
+
+/* ---------- Buttons / links that look like CTAs ---------- */
+.md-typeset .md-button {
+  border-radius: 8px;
+  font-weight: 600;
+}
+
+.md-typeset .md-button--primary {
+  background-color: var(--ink-brand);
+  border-color: var(--ink-brand);
+}
+
+.md-typeset .md-button--primary:hover {
+  background-color: var(--ink-brand-dark);
+  border-color: var(--ink-brand-dark);
+}
+
+/* =========================================================
+   Landing-page grid cards (used on index.md)
+   ========================================================= */
+.md-typeset .grid.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 0.75rem;
+  margin: 1.5em 0;
+}
+
+.md-typeset .grid.cards > ul {
+  display: contents;
+}
+
+.md-typeset .grid.cards > ul > li,
+.md-typeset .grid.cards > .card {
+  list-style: none;
+  border: 1px solid var(--ink-border);
+  border-radius: 12px;
+  padding: 1.1rem 1.2rem;
+  margin: 0;
+  background: var(--md-default-bg-color);
+  transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+}
+
+.md-typeset .grid.cards > ul > li:hover,
+.md-typeset .grid.cards > .card:hover {
+  transform: translateY(-2px);
+  border-color: var(--ink-brand);
+  box-shadow: 0 8px 24px rgba(15, 18, 40, 0.1);
+}
+
+.md-typeset .grid.cards > ul > li p:first-child {
+  margin-top: 0;
+}
+
+.md-typeset .grid.cards .twemoji {
+  font-size: 1.4rem;
+  color: var(--ink-brand);
+}
+
+/* ---------- Hero band on the overview page ---------- */
+.ink-hero {
+  border-radius: 16px;
+  padding: 2.2rem 2rem;
+  margin: 0 0 1.75rem 0;
+  background: linear-gradient(135deg, var(--ink-brand) 0%, #6a3fe8 100%);
+  color: #fff;
+}
+
+.ink-hero h1 {
+  color: #fff;
+  margin: 0 0 0.5rem 0;
+  border: none;
+}
+
+.ink-hero p {
+  color: rgba(255, 255, 255, 0.9);
+  max-width: 60ch;
+  margin: 0;
+  font-size: 1.05rem;
+}
+
+.ink-hero p:last-child {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.25rem;
+}
+
+.ink-hero .md-button {
+  margin: 0;
+}
+
+.ink-hero .md-button--primary {
+  background-color: #fff;
+  border-color: #fff;
+  color: var(--ink-brand-dark);
+}
+
+.ink-hero .md-button--primary:hover {
+  background-color: rgba(255, 255, 255, 0.9);
+  border-color: rgba(255, 255, 255, 0.9);
+}
+
+.ink-hero .md-button:not(.md-button--primary) {
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.65);
+}
+
+.ink-hero .md-button:not(.md-button--primary):hover {
+  background-color: rgba(255, 255, 255, 0.12);
+  border-color: #fff;
+}
+
+/* ---------- Footer ---------- */
+.md-footer-meta {
+  background-color: var(--ink-brand-dark);
+}
