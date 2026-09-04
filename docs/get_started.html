@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Get Started &middot; Ink AA Developer Docs</title>
+<meta name="description" content="Understand FIU and FIP consent and data workflows before you write any code.">
+<link rel="icon" href="assets/img/ic_splash.png">
+<script>
+(function(){
+  try {
+    var t = localStorage.getItem('ink-theme');
+    if (!t) t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    document.documentElement.setAttribute('data-theme', t);
+  } catch(e) {}
+})();
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@500;600;700;800&family=Manrope:wght@600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<div class="ink-topbar">RBI-Licensed Account Aggregator &middot; Certificate of Registration NBFC-AA &middot; <a href="https://www.ink-aa.com" target="_blank" rel="noopener">Visit ink-aa.com &rarr;</a></div>
+<header class="ink-header">
+  <button class="ink-menu-toggle" aria-label="Toggle navigation">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+  </button>
+  <a class="ink-header__brand" href="index.html">
+    <img src="assets/img/ic_splash.png" alt="Ink by Unacores AA">
+    <span class="ink-header__divider"></span>
+    <span class="ink-header__label">Developer Docs</span>
+    <span class="ink-header__version">v2.0.0</span>
+  </a>
+  <nav class="ink-header__nav" aria-label="Primary">
+    <a class="" href="index.html">Overview</a><a class="is-active" href="get_started.html">Get Started</a><a class="" href="how_to.html">How-To</a><a class="" href="guidelines.html">Guidelines</a>
+  </nav>
+  <div class="ink-header__actions">
+    <div class="ink-search">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+      <input type="text" placeholder="Search docs..." aria-label="Search documentation">
+      <span class="ink-search__kbd">&#8984;K</span>
+      <div class="ink-search__results"></div>
+    </div>
+    <button class="theme-toggle" aria-label="Toggle dark mode" type="button">
+      <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/></svg>
+      <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4.5"/><path d="M12 2.5v2M12 19.5v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M2.5 12h2M19.5 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4"/></svg>
+    </button>
+    <a class="btn btn-ghost" href="https://www.ink-aa.com" target="_blank" rel="noopener">ink-aa.com</a>
+    <a class="btn btn-primary" href="https://web.ink-aa.com" target="_blank" rel="noopener"><span class="full">Login to Dashboard</span><span class="short">Login</span></a>
+  </div>
+</header>
+<div class="ink-overlay"></div>
+<div class="ink-shell">
+  <aside class="ink-sidebar">
+    <nav class="ink-sidebar__nav" aria-label="Docs navigation">
+<div class="ink-sidebar__group">
+<a class="ink-sidebar__link" href="index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11.5 12 4l9 7.5"/><path d="M5 10v9a1 1 0 0 0 1 1h4v-6h4v6h4a1 1 0 0 0 1-1v-9"/></svg>Overview</a>
+</div>
+<div class="ink-sidebar__group">
+<a class="ink-sidebar__link is-active" href="get_started.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2c3 2 5 6 5 10 0 2-.5 4-1.5 5.5L12 21l-3.5-3.5C7.5 16 7 14 7 12c0-4 2-8 5-10z"/><circle cx="12" cy="10" r="1.6"/><path d="M8 16l-2.5 2.5M16 16l2.5 2.5"/></svg>Get Started</a>
+</div>
+<div class="ink-sidebar__group">
+<div class="ink-sidebar__title">Integration</div>
+<a class="ink-sidebar__link" href="ink_aa_register.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="15" r="4"/><path d="M10.8 12.2 20 3M16 7l2 2M19 4l2 2"/></svg>Registering with Ink AA</a>
+<a class="ink-sidebar__link" href="ink_aa_integration.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h13l-3-3M20 16H7l3 3"/></svg>TSP Integration with Ink AA</a>
+<a class="ink-sidebar__link" href="ink_ui_integration.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="10" height="15" rx="1.5"/><path d="M17 7h2.5A1.5 1.5 0 0 1 21 8.5v10a1.5 1.5 0 0 1-1.5 1.5H12"/></svg>UI Integration with Ink AA</a>
+<a class="ink-sidebar__link" href="ink_fiu_integration.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5.5" rx="7" ry="2.5"/><path d="M5 5.5V12c0 1.4 3.1 2.5 7 2.5s7-1.1 7-2.5V5.5"/><path d="M5 12v6.5c0 1.4 3.1 2.5 7 2.5s7-1.1 7-2.5V12"/></svg>Integrating with Ink FIU</a>
+</div>
+<div class="ink-sidebar__group">
+<div class="ink-sidebar__title">Reference</div>
+<a class="ink-sidebar__link" href="how_to.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v15H6.5A2.5 2.5 0 0 0 4 20.5"/><path d="M4 5.5v15A2.5 2.5 0 0 0 6.5 21H20"/></svg>How-To</a>
+<a class="ink-sidebar__link" href="guidelines.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="m8.5 12.5 2.5 2.5 4.5-5"/></svg>Guidelines</a>
+</div>
+</nav>
+<div class="ink-sidebar__cta"><p>Need help integrating? Our team can walk you through onboarding.</p><a class="btn btn-primary" href="mailto:connect@ink-aa.com">Contact us</a></div>
+  </aside>
+  <main class="ink-main">
+    <div class="ink-article-wrap">
+      <div class="ink-breadcrumb"><a href="index.html">Docs</a><span class="sep">/</span><a href="get_started.html">Get Started</a></div>
+      <article class="ink-article">
+        <h1 id="getting-started">Getting Started<a class="headerlink" href="#getting-started" title="Permanent link">¶</a></h1>
+<p>Welcome to Ink Account Aggregator (AA)! Whether you're a <strong>Financial Information Provider (FIP)</strong> or a <strong>Financial Information User (FIU)</strong>, this guide will help you integrate seamlessly with our ecosystem. Dive into the relevant sections below to understand workflows and API interactions tailored to your role.</p>
+<hr />
+<h2 id="understanding-fiu-workflows">Understanding FIU Workflows<a class="headerlink" href="#understanding-fiu-workflows" title="Permanent link">¶</a></h2>
+<p>As an FIU, your integration revolves around managing consent and data flows. Below are the key steps to ensure a smooth process:  </p>
+<h3 id="consent-flow">🚦 Consent Flow<a class="headerlink" href="#consent-flow" title="Permanent link">¶</a></h3>
+<h4 id="1-requesting-consent">1. <strong>Requesting Consent</strong><a class="headerlink" href="#1-requesting-consent" title="Permanent link">¶</a></h4>
+<ul>
+<li>Initiate the consent process via the <code>/Consent</code> API.  </li>
+<li>Ink AA notifies the customer through app notifications or SMS.  </li>
+<li>The customer reviews and approves/rejects the request in the Ink app (mobile or web).  </li>
+</ul>
+<h4 id="2-notifying-fiu-of-consent-status">2. <strong>Notifying FIU of Consent Status</strong><a class="headerlink" href="#2-notifying-fiu-of-consent-status" title="Permanent link">¶</a></h4>
+<ul>
+<li>Once a customer makes their decision, Ink AA informs the FIU using the <code>/Consent/Notification</code> API.  </li>
+<li>FIUs can then retrieve consent details via the <code>/Consent/{id}</code> endpoint to update their systems.</li>
+</ul>
+<hr />
+<h3 id="data-flow">📊 Data Flow<a class="headerlink" href="#data-flow" title="Permanent link">¶</a></h3>
+<h4 id="1-initiating-a-data-request">1. <strong>Initiating a Data Request</strong><a class="headerlink" href="#1-initiating-a-data-request" title="Permanent link">¶</a></h4>
+<ul>
+<li>Upon consent approval, request financial data via the <code>/FI/request</code> API.  </li>
+<li>The AA server generates a unique session ID and forwards the request to relevant FIPs as per the consent details.</li>
+</ul>
+<h4 id="2-receiving-data">2. <strong>Receiving Data</strong><a class="headerlink" href="#2-receiving-data" title="Permanent link">¶</a></h4>
+<ul>
+<li>Wait for the "Data Ready" notification from Ink AA, signaling data availability.  </li>
+<li>Retrieve the data securely from the AA server.</li>
+</ul>
+<hr />
+<h2 id="understanding-aa-workflows-and-customer-interaction">Understanding AA Workflows and Customer Interaction<a class="headerlink" href="#understanding-aa-workflows-and-customer-interaction" title="Permanent link">¶</a></h2>
+<p>Ink AA empowers customers to securely share their financial data. The process is intuitive and includes:  </p>
+<h3 id="step-1-customer-registration-with-aa">🛠️ <strong>Step 1: Customer Registration with AA</strong><a class="headerlink" href="#step-1-customer-registration-with-aa" title="Permanent link">¶</a></h3>
+<ul>
+<li>Customers register using the Ink mobile app or web platform.  </li>
+<li>Upon registration, they receive a unique AA handle, such as:  </li>
+<li><code>yourname@ink</code>  </li>
+<li><code>9999999999@ink</code> (mobile-based handle).  </li>
+</ul>
+<p>This handle is shared with FIUs for initiating consent requests, similar to a UPI handle for payments.  </p>
+<hr />
+<h3 id="step-2-linking-financial-accounts">🔗 <strong>Step 2: Linking Financial Accounts</strong><a class="headerlink" href="#step-2-linking-financial-accounts" title="Permanent link">¶</a></h3>
+<ul>
+<li>Customers link their financial accounts by authenticating with their Financial Institution using an OTP.  </li>
+<li>This step ensures all linked accounts are ready for data sharing.  </li>
+</ul>
+<hr />
+<h3 id="step-3-secure-sharing-of-financial-information">🔐 <strong>Step 3: Secure Sharing of Financial Information</strong><a class="headerlink" href="#step-3-secure-sharing-of-financial-information" title="Permanent link">¶</a></h3>
+<ul>
+<li>Customers approve or reject consent requests directly from the Ink app.  </li>
+<li>Approved consents enable FIUs to securely access specified financial data via Ink AA.</li>
+</ul>
+<hr />
+<h2 id="integrating-with-our-fiu-module">Integrating with Our FIU Module<a class="headerlink" href="#integrating-with-our-fiu-module" title="Permanent link">¶</a></h2>
+<p>Ink AA simplifies integration for FIUs by offering a pre-built <strong>FIU module</strong>. This allows you to:<br />
+- Focus on building your application after receiving decrypted data.<br />
+- Leverage our <strong>FIU sandbox environment</strong> for testing and development.</p>
+<h3 id="key-highlights-of-the-fiu-module">Key Highlights of the FIU Module:<a class="headerlink" href="#key-highlights-of-the-fiu-module" title="Permanent link">¶</a></h3>
+<ul>
+<li>Compatible with any AA, using the customer's AA handle (e.g., <code>customer1@ink</code> redirects to Ink AA).  </li>
+<li>Adheres to <a href="https://api.rebit.org.in/schema">ReBIT FIType schemas</a> for seamless data handling.  </li>
+</ul>
+<h3 id="why-choose-our-fiu-module">⚡ Why Choose Our FIU Module?<a class="headerlink" href="#why-choose-our-fiu-module" title="Permanent link">¶</a></h3>
+<ul>
+<li>Reduces development effort by providing core functionality.  </li>
+<li>Ensures compliance with the latest ecosystem standards.  </li>
+</ul>
+<hr />
+<p>By following this guide, you’ll be ready to integrate efficiently with Ink AA and the broader AA ecosystem. Let us help you unlock the full potential of secure financial data sharing!  </p>
+<p>For any assistance, reach out to our support team at <strong>connect@ink-aa.com</strong>.  </p>
+      </article>
+      <div class="ink-pagenav">
+<a class="prev" href="index.html"><div class="dir">&larr; Previous</div><div class="ttl">Overview</div></a>
+<a class="next" href="ink_aa_register.html"><div class="dir">Next &rarr;</div><div class="ttl">Registering with Ink AA</div></a>
+</div>
+    </div>
+  </main>
+  <aside class="ink-toc"></aside>
+</div>
+<footer class="ink-footer">
+  <div class="ink-footer__inner">
+    <div class="ink-footer__brand">
+      <img src="assets/img/ic_splash.png" alt="Ink by Unacores AA">
+      <p>Unacores AA Solutions Private Limited holds an RBI Certificate of Registration to operate as an Account Aggregator in India. Building the consent layer for India's financial stack.</p>
+    </div>
+    <div>
+      <h4>Docs</h4>
+      <ul>
+        <li><a href="index.html">Overview</a></li>
+        <li><a href="get_started.html">Get Started</a></li>
+        <li><a href="how_to.html">How-To</a></li>
+        <li><a href="guidelines.html">Guidelines</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Product</h4>
+      <ul>
+        <li><a href="https://www.ink-aa.com" target="_blank" rel="noopener">Home</a></li>
+        <li><a href="https://www.ink-aa.com/about-us.html" target="_blank" rel="noopener">About Us</a></li>
+        <li><a href="https://www.ink-aa.com/blogs.html" target="_blank" rel="noopener">Blog</a></li>
+        <li><a href="https://web.ink-aa.com" target="_blank" rel="noopener">Login</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="mailto:connect@ink-aa.com">connect@ink-aa.com</a></li>
+        <li><a href="tel:+919867902913">+91 98679 02913</a></li>
+        <li><span style="color:var(--muted)">15 D, Salim Building, Khetwadi 12th Lane, Girgaon, Mumbai MH 400004</span></li>
+      </ul>
+    </div>
+  </div>
+  <div class="ink-footer__bottom">
+    <span>&copy; 2025 Unacores AA Solutions Private Limited. All rights reserved.</span>
+    <span>
+      <a href="https://www.ink-aa.com/terms-conditions.html" target="_blank" rel="noopener">Terms</a> &middot;
+      <a href="https://www.ink-aa.com/privacy-policy.html" target="_blank" rel="noopener">Privacy</a> &middot;
+      <a href="https://www.ink-aa.com/grievances-details.html" target="_blank" rel="noopener">Grievances</a>
+    </span>
+  </div>
+</footer>
+<script src="assets/js/site.js"></script>
+</body>
+</html>
