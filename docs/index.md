@@ -1,6 +1,6 @@
 # Overview
 
-## Introduction
+## Introduction - :
 
 Welcome to **Ink Account Aggregator**! This guide provides comprehensive instructions for integrating and utilizing our Account Aggregator APIs. 
 
